@@ -1,0 +1,49 @@
+<template lang="wxml">
+    <view class="title-box dj-col-24">
+      <slot name="title"/>
+      <view class="title-action has-padding-box">
+        <navigator class="tab-item" url="{{}}" hover-class="navigator-hover">
+          {{leftNav.text}}
+        </navigator>
+        <navigator class="tab-item" url="{{}}" hover-class="navigator-hover">
+          {{rightNav.text}}
+        </navigator>
+      </view>
+      <slot name="content"></slot>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class SlideableProduct extends wepy.component {
+    props = {
+      title:{
+        type: String,
+        default:''
+      },
+      leftNav:{
+        type: Object,
+        default: ""
+      },
+      rightNav:{
+        type: Object,
+        default: ""
+      }
+    }
+    components = {}
+
+    data = {}
+    methods = {}
+
+    events = {}
+}
+</script>
+
+<style lang="less">
+.title-action{
+  display: flex;
+  font-size: 24rpx;
+  justify-content: space-between;
+  padding-bottom: 10rpx;
+}
+</style>

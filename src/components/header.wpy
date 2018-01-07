@@ -1,0 +1,30 @@
+<template lang="wxml">
+    <view class="title-box dj-row">
+      <view class="dj-col dj-col-4">
+        <slot name="service"></slot>
+      </view>
+      <view class="dj-col dj-col-offset-4 dj-col-16">{{title}}</view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Header extends wepy.component {
+    props = {
+      title: String
+    }
+    components = {}
+
+    data = {}
+    methods = {}
+
+    events = {}
+}
+</script>
+
+<style lang="less">
+.title-box{
+  padding: 10rpx 0;
+  width: 100%;
+}
+</style>

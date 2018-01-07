@@ -1,0 +1,36 @@
+<style lang="less">
+</style>
+<template lang="wxml">
+  <view>
+    <!-- <view class="main-content">
+      {{mainContent}}      
+    </view>
+    <view  class="title">
+      {{title}}
+    </view> -->
+    <slot name="content" />
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Banner extends wepy.component {
+    props={
+      mainContent:{
+        type: String,
+        default:''
+      },
+      title:{
+        type: String,
+        default:''
+      }
+    }
+    onLoad(){
+      console.log(this.tabList,"mm")
+    }
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

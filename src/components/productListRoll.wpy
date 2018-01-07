@@ -1,0 +1,69 @@
+<template lang="wxml">
+ <scroll-view style="white-space: nowrap" scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <repeat for="{{list}}" key="index" index="index" item="item">
+      <ProductCard :item="item">
+        <view class="clothing-level-box" slot="clothingLevel"> 
+          <ClothingLevel level="item.level"/>
+        </view>
+        <view slot="clothName">
+          {{item.clothName}}
+        </view>
+        <view slot="size">
+          {{item.size}}
+        </view>
+        <view slot="heart">
+          心
+        </view>
+        <view slot="referencePrice">
+          <view class="reference-price">参考价￥{{item.referencePrice}}</view>
+        </view>
+      </ProductCard> 
+    </repeat>
+  </scroll-view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import ClothingLevel from '@/components/clothingLevel'
+import ProductCard from '@/components/productCard'
+
+// 练习生成器
+// function readonly(target, name, descriptor) {
+//   console.log(target,"@",name,"@",descriptor)
+//   descriptor.writable = false;
+//   return descriptor;
+// }
+export default class ProductListRoll extends wepy.component {
+    props = {
+      title: String,
+      list:{
+        type: Array
+      }
+    }
+    components = {
+      ProductCard,
+      ClothingLevel
+    }
+    onLoad(){
+      console.log(this.list,"@@@111")
+    }
+    @readonly
+    b(){
+
+    }
+    data = {}
+    methods = {}
+
+    events = {}
+}
+
+// const e = new ProductListRoll();
+// e.b = 2;
+</script>
+
+<style lang="less">
+.clothing-level-box{
+  position: absolute;
+  right: 10rpx;
+}
+</style>

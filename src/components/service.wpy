@@ -1,0 +1,20 @@
+<template lang="wxml">
+    <view class="dj-icon-base dj-icon-base-phone service-style">
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Service extends wepy.component {
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+  .service-style{
+    font-size: 30rpx;
+  }
+</style>

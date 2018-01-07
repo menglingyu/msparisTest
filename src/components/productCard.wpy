@@ -1,0 +1,92 @@
+<template lang="wxml">
+  <view class="dj-col-8 product-card">
+    <slot name="clothingLevel" />
+    <view>
+      <image
+        class="clothing-photo"
+        src="{{item.url}}"
+      />
+    </view>
+    <view class="msg-box">
+      <view class="brand-name">{{item.brandName}}</view>
+      <view class="detail">
+        <view>
+          <slot name="clothName"/>
+          <slot name="size"/>
+        </view>
+        <view>
+          <slot name="heart" />
+        </view>
+      </view>
+      <view class="worth-box">
+        <view class="jewel">{{item.jewel}}</view>
+        <slot name="referencePrice" />
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class  ProductCard extends wepy.component {
+    props = {
+      item: Object,
+    }
+    components = {
+      
+    }
+    onLoad(){
+      console.log(this.item,"@@@111222")
+    }
+    data = {}
+    methods = {}
+
+    events = {}
+}
+</script>
+
+<style lang="less">
+.product-card{
+  display: inline-block;
+  border: 1px solid #ccc;
+  position: relative;
+}
+.clothing-photo{
+  height: 200rpx;
+  width: 100%;
+}
+.msg-box{
+  background: #fff;
+  font-size: 26rpx;
+  padding: 0 10rpx;
+  .brand-name{
+    text-align: left;
+    margin: 10rpx 0;
+  }
+  .detail{
+    display: flex;
+    flex-direction: row; 
+    text-align: left;    
+  }
+  .worth-box{
+    display: flex;
+    flex-direction: row;
+    font-size: 20rpx;
+    margin: 10rpx 0 20rpx;
+    justify-content: space-between;
+    .jewel{
+
+    }
+    .reference-price{
+      
+    }
+    .cloth-name{
+
+    }
+    .size{
+
+    }
+  }
+  
+}
+</style>

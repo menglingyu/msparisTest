@@ -1,0 +1,271 @@
+<style lang="less">
+  @bannerContentH: 120rpx;
+  .slideshow-box{
+    background: #fff;
+    width: 100%;
+  }
+  .slide-image{
+    width: 100%;
+    height: 300rpx;
+  }
+  .tab{
+    font-size: 24rpx;
+    padding: 14rpx 20rpx;
+    background: #fff;
+  }
+  .banner{
+    display: flex;
+    flex-direction: row;
+    margin: 20rpx 0;
+    background: #fff;
+    .banner-box{
+      font-size: 25rpx;
+      text-align: center;
+      border-right: 1px solid #f2f2f2;
+      .content-box{
+        width: 80%;
+        margin: 0 auto;
+        .main-content{
+          display: flex;
+          justify-content:center;
+          align-content: center;
+          flex-direction: column;
+          font-size: 30rpx;
+          height: @bannerContentH;
+        }
+        .money{
+          font-size: 30rpx;
+        }
+        .title{
+          .main-content;
+          height: @bannerContentH;
+          font-size: 34rpx;
+        }
+      
+      }
+    }
+    
+  }
+  .product{
+    width: 100%;
+    text-align: center;
+    background: #fff;
+  }
+</style>
+<template>
+  <view class="container">
+    <view class="has-padding-box">
+      <Header title="MSPARIS·女神派">
+        <view slot="service">
+          <Service />
+        </view>
+      </Header>
+    </view>
+    <!-- <view>
+      <Button>222</Button>
+    </view> -->
+    <view class="slideshow-box">
+      <Slideshow1
+        :autoplay="autoplay"
+        :indicatorDots='indicatorDots'
+        :duration.sync="duration"
+        :interval.sync="interval"
+        >
+        <view style="white-space: nowrap" slot="photoList">
+          <repeat for="{{list}}" key="index" index="index" item="item">
+            <!-- <child :item="item"></child> -->
+            <swiper-item>
+              <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+          </repeat>
+        </view>
+      </Slideshow1>
+    </view>
+    <view class="dj-col-24 tab">
+      <Tab :tabList.sync="tabList" />
+    </view>
+    <view class="dj-col-24 banner">
+      <view class="dj-col-12 banner-box">
+        <Banner1>
+          <view class="content-box" slot="content">
+            <view  class="main-content">
+              <view>
+                无限衣橱包月  
+              </view>
+              <view class="money">
+                仅需￥318
+              </view>
+            </view>
+            <view  class="title">
+              在架美衣
+            </view>
+          </view>
+        </Banner1>
+      </view>
+      <view 
+        style="border:none"
+        class="dj-col-12 banner-box"
+        >
+        <Banner2>
+          <view
+            class="content-box" 
+            slot="content"
+            >
+            <view  class="main-content">
+              <view>
+                无限衣橱包月  
+              </view>
+              <view class="money">
+                仅需￥318
+              </view>
+            </view>
+            <view  class="title">
+              在架美衣
+            </view>
+          </view>
+        </Banner2>
+      </view>
+    </view>
+    <view class="product">
+      <EveryDay
+        :leftNav="leftNav"
+        :rightNav="rightNav"
+        >
+        <view slot="title">每日新品</view>
+        <view slot="content">
+          <ProductListRoll
+            :list="productList"
+            />
+        </view>
+      </EveryDay>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Header from '@/components/header'
+  import Btn1 from '@/components/wepy-button/index'
+  import Service from '@/components/service'
+  import Slideshow from '@/components/slideshow'
+  import Tab from '@/components/tab'
+  import Banner from '@/components/banner'
+  import SlideableProduct from '@/components/slideableProduct'
+  import ProductListRoll from '@/components/productListRoll'
+
+  
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: 'www'
+    }
+    components = {
+      Button: Btn1,
+      Header,
+      Service,
+      Slideshow1: Slideshow,
+      Tab:Tab,
+      Banner1:Banner,
+      Banner2:Banner,
+      EveryDay: SlideableProduct,
+      ProductListRoll:ProductListRoll
+    }
+    data = {
+      list:[
+        '../images/image1.png',
+        '../images/image1.png'
+      ],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      tabList:[
+        {
+          url:"www.baidu.com",
+          text:"海外大牌"
+        },{
+          url:"www.baidu.com",
+          text:"无限换穿"
+        },{
+          url:"www.baidu.com",
+          text:"喜欢才买"
+        },{
+          url:"www.baidu.com",
+          text:"往返包邮"
+        }
+      ],
+      leftNav: {
+        text: "轻奢会员",
+        url: ""
+      },
+      rightNav: {
+        text: "更多",
+        url: ""
+      },
+      productList:[
+        {
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },
+      ]
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+     
+    }
+
+    events = {
+      'index-emit': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
+    }
+
+    onLoad() {
+      let self = this
+    }
+  }
+</script>

@@ -1,0 +1,51 @@
+<style lang="less">
+  .row-tab{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    .tab-item{
+      position: relative;
+      text-align: center;
+      width: 25%;
+    }
+    .tab-item:not(:nth-child(4)){
+      border-right: 1px solid #ccc;
+    }
+  }
+</style>
+<template lang="wxml">
+  <view class="row-tab">
+    <repeat for="{{tabList}}" 
+      key="index" 
+      index="index" 
+      item="item"
+      >
+      <navigator 
+        class="tab-item"
+        url="{{item.url}}" 
+        hover-class="navigator-hover"
+        >
+        {{item.text}}
+      </navigator>
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Tab extends wepy.component {
+    props={
+      tabList:{
+        type:Array,
+        default:[]
+      }
+    }
+    onLoad(){
+      console.log(this.tabList,"mm")
+    }
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

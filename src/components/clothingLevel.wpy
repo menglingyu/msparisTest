@@ -1,0 +1,31 @@
+<template lang="wxml">
+  <view class="dj-col-8 clothing-level">
+    {{level}}
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class ClothingLevel extends wepy.component {
+    props = {
+      level:{
+        type:String,
+        default:"222"
+      }
+    }
+    onLoad(){
+      console.log(this.sss,"jkjj")
+    }
+}
+</script>
+
+<style lang="less">
+.clothing-level{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 50%;
+  background: #ccc;
+  color: #fff;
+}
+</style>
