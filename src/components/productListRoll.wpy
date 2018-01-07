@@ -45,9 +45,9 @@ export default class ProductListRoll extends wepy.component {
       ClothingLevel
     }
     onLoad(){
-      console.log(this.list,"@@@111")
+      // console.log(this.list,"@@@111")
     }
-    @readonly
+    // @readonly
     b(){
 
     }
