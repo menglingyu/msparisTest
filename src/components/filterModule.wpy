@@ -1,0 +1,153 @@
+<style lang="less">
+@lineHight: 30rpx;
+.select-style{
+  display: flex;
+  flex-direction: row;
+}
+.filtrate{
+  background: #fff;
+  padding: 0rpx 0 30rpx;
+  .row-container{
+    display: flex;
+    padding: 20rpx 0 20rpx 40rpx;
+    font-size: @lineHight;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    .lable{
+      display: inline-block;
+      line-height: @lineHight * 2;
+      margin-right: 16rpx;
+      color: #000;
+    }
+  }
+  .picker{
+    width: 20%;
+  }
+  .section{
+    text-align: right;
+    width: 80%;
+    padding-right: 36rpx;
+  }
+}
+
+</style>
+
+<template lang="wxml">
+  <view class="dj-col-24 filtrate">
+    <view class="row-container">
+      <view>筛选</view>
+      <view>轻奢会员</view>
+    </view>
+    <view class="row-container">
+      <view  class="picker">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view>
+          租期
+        </view>
+      </picker>
+      </view>
+      <view class="section">
+          <TimeSelector />
+      </view>
+    </view>
+    <view class="row-container">
+      <view class="lable">
+        尺码
+      </view>
+      <view>
+        <Select1
+          class="select-style"
+          :items.sync="items"
+          :checkedValue.sync="checkedValue1"
+          componentId="base"
+          :handleSelectChange.sync="handleSelectChange"
+          >
+        </Select1>
+      </view>
+    </view>
+    <view class="row-container">
+      <view class="lable">
+        场合
+      </view>
+      <Select1
+        class="select-style"
+        :items.sync="items"
+        :checkedValue.sync="checkedValue1"
+        componentId="base"
+        :handleSelectChange.sync="handleSelectChange"
+        >
+      </Select1>
+    </view>
+    <view class="row-container">
+      <view class="lable">
+        尺码
+      </view>
+      <Select1
+        class="select-style"
+        :items.sync="items"
+        :checkedValue.sync="checkedValue1"
+        componentId="base"
+        :handleSelectChange.sync="handleSelectChange"
+        >
+      </Select1>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import Select1 from '@/components/wepy-select/index'
+import TimeSelector from '@/components/timeSelector'
+
+export default class FilterModule extends wepy.component {
+  constructor(){
+    super();
+    this.handleSelectChange=this.handleSelectChange.bind(this);
+  }
+  components = {
+    Select1,
+    TimeSelector
+  }
+  data = {
+    items: [
+      {
+        padding: 0,
+        value: '1',
+        name: 'XXS/XS',
+      },{
+        padding: 0,
+        value: '2',   
+        name: 'S',
+      },{
+        padding: 0,
+        value: '3',
+        name: 'M',
+      },{
+        padding: 0,
+        value: '4',
+        name: 'L',
+      },{
+        padding: 0,
+        value: '5',
+        name: 'XL+',
+      },{
+        padding: 0,
+        value: '6',
+        name: '均码',
+      },
+    ],
+
+    checked: {
+      base: '1',
+      color: '1'
+    },
+    activeColor: '#4b0'
+  }
+  handleSelectChange({ componentId, value }) {
+      this.checked[componentId]=value;
+      this.$apply();
+  }
+  methods = {}
+  events = {}
+}
+</script>

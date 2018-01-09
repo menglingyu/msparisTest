@@ -1,0 +1,120 @@
+<style lang="less">
+
+</style>
+<template>
+  <view class="container">
+    <FiltrModule />
+    <view slot="content">
+      <repeat for="{{productList}}" key="index" index="index" item="item">
+        <ProductCard 
+          class="dj-col-12"
+          :item="item"
+          >
+          <view class="clothing-level-box" slot="clothingLevel"> 
+            <ClothingLevel level="item.level"/>
+          </view>
+          <view wx:if="{{item.clothName}}" slot="clothName">
+            {{item.clothName}}
+          </view>
+          <view wx:if="{{item.size}}" class="size-box" slot="size">
+            {{item.size}}
+          </view>
+          <view wx:if="{{item.heart}}"  slot="heart">
+            {{item.heart}}
+          </view>
+          <view slot="referencePrice">
+            <view wx:if="{{item.referencePrice}}" class="reference-price">
+              参考价￥{{item.referencePrice}}
+            </view>
+          </view>
+        </ProductCard> 
+      </repeat>
+    </view>
+    <GoTop/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Header from '@/components/header'
+  import FiltrModule from '@/components/filterModule'
+  import SlideableProduct from '@/components/slideableProduct'
+  import ClothingLevel from '@/components/clothingLevel'
+  import ProductCard from '@/components/productCard'
+  import GoTop from '@/components/goTop'
+
+  export default class InfiniteClothing extends wepy.page {
+    config = {
+      navigationBarTitleText: 'w222s'
+    }
+    components = {
+      FiltrModule,
+      SlideableProduct,
+      ProductCard,
+      ClothingLevel,
+      GoTop
+    }
+    data = {
+      productList:[
+        {
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"24244",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },{
+          level:0,
+          brandName:'品牌名称',
+          referencePrice:"2444",
+          jewel: '💎💎',
+          url:'../images/image2.png',
+          size:"XS  S  M  L  XL  均码",
+          clothName:"nike"
+        },
+      ],
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+     
+    }
+
+    events = {
+    }
+
+    onLoad() {
+      let self = this
+    }
+  }
+</script>

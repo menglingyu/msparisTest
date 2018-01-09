@@ -1,9 +1,6 @@
 <style lang="less">
 @import "components/wepy-style/index.wxss";
 
-// .no-border(@direction) {
-//   @direction: 1px solid #ccc!important;
-// }
 .container {
   height: 100%;
   display: flex;
@@ -12,6 +9,20 @@
   justify-content: space-between;
   box-sizing: border-box;
   background: #f2f2f2;
+  .clothing-level-box{
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+  }
+  .product{
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    .title{
+      font-size: 30rpx;
+      margin-top: 14rpx;
+    }
+  }
 }
 .has-padding-box{
   box-sizing: border-box;
@@ -27,14 +38,33 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/index'
+      'pages/index',
+      'pages/infiniteClothing'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    }
+    },
+    "tabBar": {
+      "list": [{
+        "pagePath": "pages/index",
+        "text": "首页"
+      }, {
+        "pagePath": "pages/infiniteClothing",
+        "text": "无限衣橱"
+      }, {
+        "pagePath": "pages/shoppingCar",
+        "text": "衣袋"
+      }, {
+        "pagePath": "pages/orderForm",
+        "text": "订单"
+      }, {
+        "pagePath": "pages/personalInfo",
+        "text": "我的"
+      }]
+    },
   }
 
   globalData = {

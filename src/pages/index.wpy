@@ -65,7 +65,7 @@
       <Button>222</Button>
     </view> -->
     <view class="slideshow-box">
-      <Slideshow1
+      <Slideshow
         :autoplay="autoplay"
         :indicatorDots='indicatorDots'
         :duration.sync="duration"
@@ -79,7 +79,7 @@
             </swiper-item>
           </repeat>
         </view>
-      </Slideshow1>
+      </Slideshow>
     </view>
     <view class="dj-col-24 tab">
       <Tab :tabList.sync="tabList" />
@@ -127,17 +127,52 @@
       </view>
     </view>
     <view class="product">
-      <EveryDay
+            <view class="title" slot="title">每日新品</view>
+      <EveryDayLuxury
         :leftNav="leftNav"
         :rightNav="rightNav"
         >
-        <view slot="title">每日新品</view>
         <view slot="content">
-          <ProductListRoll
-            :list="productList"
+          <EveryDayLuxuryList
+            :list="productList1"
             />
         </view>
-      </EveryDay>
+      </EveryDayLuxury>
+      <EveryDayFashion
+        :leftNav="fashionLeftNav"
+        :rightNav="fashionRightNav"
+        >
+        <view slot="content">
+          <EveryDayFashionList
+            :list="productList1"
+            />
+        </view>
+      </EveryDayFashion>
+    </view>
+    <view class="product">
+      <view class="title"  slot="title">在架美衣</view>
+      <EveryDayLuxury
+        :leftNav="leftNav"
+        :rightNav="rightNav"
+        >
+        <view slot="content">
+        <EveryDayLuxuryList
+          :list="productList1"
+          />
+        </view>
+      </EveryDayLuxury>
+      <EveryDayFashion
+        :leftNav="fashionLeftNav"
+        :rightNav="fashionRightNav"
+        >
+        <view slot="content">
+          <EveryDayFashionList
+            :list="productList1"
+            />
+        </view>
+
+        </view>
+      </EveryDayFashion>
     </view>
   </view>
 </template>
@@ -163,12 +198,15 @@
       Button: Btn1,
       Header,
       Service,
-      Slideshow1: Slideshow,
+      Slideshow: Slideshow,
       Tab:Tab,
       Banner1:Banner,
       Banner2:Banner,
-      EveryDay: SlideableProduct,
-      ProductListRoll:ProductListRoll
+      EveryDayLuxury: SlideableProduct,
+      EveryDayFashion: SlideableProduct,
+      EveryDayLuxuryList: ProductListRoll,
+      EveryDayFashionList: ProductListRoll
+
     }
     data = {
       list:[
@@ -194,15 +232,11 @@
           text:"往返包邮"
         }
       ],
-      leftNav: {
-        text: "轻奢会员",
-        url: ""
-      },
-      rightNav: {
-        text: "更多",
-        url: ""
-      },
-      productList:[
+      leftNav: {text: "轻奢会员",url: ""},
+      rightNav: {text: "更多", url: ""},
+      fashionLeftNav:{text: "时尚会员",url: ""},
+      fashionRightNav:{text: "更多",url: ""},
+      productList1:[
         {
           level:0,
           brandName:'品牌名称',

@@ -1,0 +1,40 @@
+<style lang="less">
+
+</style>
+<template>
+  <view class="container">
+    12
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Header from '@/components/header'
+
+  export default class ShoppingCar extends wepy.page {
+    config = {
+      navigationBarTitleText: 'www'
+    }
+    components = {}
+    data = {
+
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+     
+    }
+
+    events = {
+    }
+
+    onLoad() {
+      let self = this
+    }
+  }
+</script>

@@ -1,21 +1,26 @@
 <template lang="wxml">
  <scroll-view style="white-space: nowrap" scroll-x bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <repeat for="{{list}}" key="index" index="index" item="item">
-      <ProductCard :item="item">
+      <ProductCard 
+        class="dj-col-8"
+        :item="item"
+        >
         <view class="clothing-level-box" slot="clothingLevel"> 
           <ClothingLevel level="item.level"/>
         </view>
-        <view slot="clothName">
+        <view wx:if="{{item.clothName}}" slot="clothName">
           {{item.clothName}}
         </view>
-        <view slot="size">
+        <view wx:if="{{item.size}}" class="size-box" slot="size">
           {{item.size}}
         </view>
-        <view slot="heart">
-          心
+        <view wx:if="{{item.heart}}"  slot="heart">
+          {{item.heart}}
         </view>
         <view slot="referencePrice">
-          <view class="reference-price">参考价￥{{item.referencePrice}}</view>
+          <view wx:if="{{item.referencePrice}}" class="reference-price">
+            参考价￥{{item.referencePrice}}
+          </view>
         </view>
       </ProductCard> 
     </repeat>
@@ -62,8 +67,7 @@ export default class ProductListRoll extends wepy.component {
 </script>
 
 <style lang="less">
-.clothing-level-box{
-  position: absolute;
-  right: 10rpx;
+.size-box{
+  font-size: 20rpx;
 }
 </style>

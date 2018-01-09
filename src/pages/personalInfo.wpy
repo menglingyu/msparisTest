@@ -1,0 +1,39 @@
+<style lang="less">
+
+</style>
+<template>
+  <view class="container">
+    123
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import Header from '@/components/header'
+
+  export default class PersonalInfo extends wepy.page {
+    config = {
+      navigationBarTitleText: "Steps 步骤条"
+    }
+    components = {}
+    data = {
+
+    }
+
+    computed = {
+      now () {
+        return +new Date()
+      }
+    }
+
+    methods = {
+     
+    }
+
+    events = {
+    }
+
+    onLoad() {
+      let self = this
+    }
+  }
+</script>

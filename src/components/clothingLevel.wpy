@@ -21,11 +21,12 @@ export default class ClothingLevel extends wepy.component {
 
 <style lang="less">
 .clothing-level{
-  width: 60rpx;
-  height: 60rpx;
-  line-height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   border-radius: 50%;
   background: #ccc;
   color: #fff;
+  text-align: center;
 }
 </style>

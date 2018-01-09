@@ -5,23 +5,34 @@
  * @Last Modified by:
  * @Last Modified time:
  */
-<style lang="css">
+<style lang="less">
 .dj-select__list .dj-select__radio{
   display: none;
 }
+.select-base{
+  padding: 8rpx 16rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.selectedStyle{
+  background: #ccc;
+}
+.disSelectedStyle{
+  background: #fff;
+}
+
 </style>
 <template>
   <radio-group class="dj-select__list" @change="_handleSelectChange({{componentId}})">
     <label wx:for="{{ items }}" wx:key="value">
-      <view class="dj-cell">
+      <view style="padding: 0rpx 14rpx" class="dj-cell ">
         <radio class="dj-select__radio" value="{{ item.value }}" checked="{{ item.value == checkedValue }}"/>
         <view
-          class="dj-cell__bd"
-          style="{{'padding-left: ' + item.padding + 'px;'}}{{item.value === checkedValue?('color: '+(activeColor||'#ff4444')):''}}"
+          class="select-base {{item.value == checkedValue ? 'selectedStyle' : 'disSelectedStyle'}}"
         >{{ item.name }}</view>
-        <view wx:if="{{ item.value == checkedValue }}" class="dj-cell__ft">
+        <!-- <view wx:if="{{ item.value == checkedValue }}" class="dj-cell__ft">
           <icon type="success_no_circle" color="{{ activeColor?activeColor:'#ff4444'}}" size="14"></icon>
-        </view>
+        </view> -->
       </view>
     </label>
   </radio-group>

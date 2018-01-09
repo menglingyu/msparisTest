@@ -1,5 +1,5 @@
 <template lang="wxml">
-  <view class="dj-col-8 product-card">
+  <view class="product-card">
     <slot name="clothingLevel" />
     <view>
       <image
@@ -50,6 +50,7 @@ export default class  ProductCard extends wepy.component {
   display: inline-block;
   border: 1px solid #ccc;
   position: relative;
+  box-sizing: border-box;
 }
 .clothing-photo{
   height: 200rpx;
@@ -67,6 +68,9 @@ export default class  ProductCard extends wepy.component {
     display: flex;
     flex-direction: row; 
     text-align: left;    
+    justify-content: space-between;
+    width: 100%;    
+
   }
   .worth-box{
     display: flex;
