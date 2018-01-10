@@ -1,0 +1,67 @@
+<style lang="less">
+@contentPadding: 24rpx;
+.info-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  box-sizing: content-box;
+  padding: 14rpx  @contentPadding;
+  .main-content{
+    .label-box{
+      display: flex;
+      flex-direction: row;
+      .lable{
+        min-width: 40rpx;
+        font-size: 26rpx;
+        padding: 4rpx 20rpx;
+        border-radius: 16rpx;
+        text-align: center;
+        background: #cccccc;
+        margin-top: 20rpx;
+        margin-right: 10rpx;
+      }
+    }
+  }
+  .reference-price{
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
+<template lang="wxml">
+  <view class="info-box">
+    <view class="main-content">
+      <view>{{infoData.level}}</view>
+      <view>{{infoData.clothingName}}</view>
+      <view class="label-box">
+        <repeat for="{{infoData.label}}" key="index" index="index" item="item">
+          <view class="lable">
+            {{item}}
+          </view>
+        </repeat>
+      </view>
+    </view>
+    <view class="reference-price">
+      参考价￥{{infoData.referencePrice}}
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class ClothingInfo extends wepy.component {
+    props = {
+      level:{
+        type:String,
+        default:"222"
+      },
+      infoData: Object
+    }
+    onLoad(){
+      console.log(this.sss,"jkjj")
+    }
+}
+</script>
+

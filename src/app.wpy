@@ -1,6 +1,6 @@
 <style lang="less">
 @import "components/wepy-style/index.wxss";
-
+@contentPadding: 24rpx;
 .container {
   height: 100%;
   display: flex;
@@ -39,7 +39,12 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/index',
-      'pages/infiniteClothing'
+      'pages/infiniteClothing',
+      'pages/orderForm',
+      'pages/personalInfo',
+      'pages/shippingAddress',
+      'pages/shoppingCar',
+      'pages/clothingDetail',
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -1,0 +1,26 @@
+<style lang="less">
+  .add-box{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+</style>
+<template lang="wxml">
+  <view class="add-box">
+    <view class>
+      <BagIcon />
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class AddShoppingCar extends wepy.component {
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

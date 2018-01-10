@@ -1,0 +1,71 @@
+<style lang="less">
+@contentPadding: 24rpx;
+.size-box{
+  padding: 14rpx  @contentPadding;
+  .size-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .size-explain{
+      margin-top: 8rpx;
+      font-size: 24rpx;
+    }
+  }
+  .main-content-box{
+    display: flex;
+    flex-direction: row;
+    .card{
+      width: 16%;
+      margin-top: 20rpx;
+      margin-right: 3%;
+      border: 1px solid #f2f2f2;
+      box-shadow: 0 0 10rpx #ccc; 
+      text-align: center;
+      font-size: 30rpx;
+      line-height: 40rpx;
+      .cn{
+        font-size: 26rpx;
+        line-height: 26rpx;
+        color: #888;
+      }
+    }
+  }
+}
+
+
+</style>
+<template lang="wxml">
+    <view class="size-box">
+      <view class="size-title">
+        <view>尺码</view>
+        <view class="size-explain-box">
+          <view class="size-explain">
+            <view class="dj-icon-base dj-icon-base-question"  style="color: #ff4343;">
+            </view>
+            尺码说明
+          </view>
+        </view>
+      </view>
+      <view class="main-content-box">
+        <repeat for="{{inventory}}" key="index" index="index" item="item">
+          <view class="card">
+            <view>{{item.us}}</view>
+            <view class="cn">{{item.cn}}</view>
+          </view>
+        </repeat>
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Size extends wepy.component {
+    props={
+      inventory: Array
+    }
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

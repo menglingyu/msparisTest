@@ -1,0 +1,94 @@
+<style lang="less">
+.slideshow-box{
+  position: relative;
+   width: 100%;
+   height: 150px;
+   white-space: nowrap;
+   .slide-image{
+    width: 100%;
+    height: 300rpx;
+  }
+ }
+</style>
+<template>
+  <view class="container">
+    <view class="slideshow-box">
+      <SlideShow
+        :autoplay="autoplay"
+        :indicatorDots='indicatorDots'
+        :duration.sync="duration"
+        :interval.sync="interval"
+        >
+        <view style="white-space: nowrap" slot="photoList">
+          <repeat for="{{list}}" key="index" index="index" item="item">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+          </repeat>
+        </view>
+      </SlideShow>
+      <ClothingInfo 
+        :infoData="infoData"
+      />
+      <Size :inventory="inventory"/>
+      <view class="add">
+        <AddShoppingCar />
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import SlideShow from '@/components/slideshow'
+  import ClothingInfo from '@/components/clothingInfo'
+  import Size from '@/components/size'
+  import AddShoppingCar from '@/components/addShoppingCar'
+  
+
+  export default class ClothingDetail extends wepy.page {
+    config = {
+
+    }
+    components = {
+      SlideShow,
+      ClothingInfo,
+      Size,
+      AddShoppingCar
+    }
+    data = {
+      list:[
+        '../../images/image1.png',
+        '../../images/image1.png'
+      ],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      infoData: {
+        level: '💎💎',
+        clothingName: '爱马仕',
+        label:['1','2','3'],
+        referencePrice: '2000'
+      },
+      inventory:[{
+        us: '2',
+        cn: 's/m'
+      },{
+        us: '3',
+        cn: 'm/l'
+      },{
+        us: '2',
+        cn: 'xl'
+      }]
+    }
+
+    computed = {
+  
+    }
+
+    methods = {
+     
+    }
+  }
+</script>
