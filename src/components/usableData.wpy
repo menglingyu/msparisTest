@@ -1,0 +1,23 @@
+<style lang="less">
+
+</style>
+<template lang="wxml">
+  <view>
+    <view 
+      style="color:#888"
+      class="dj-icon-base dj-icon-base-sign"   />
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class UsableData extends wepy.component {
+    props={
+      inventory: Array
+    }
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

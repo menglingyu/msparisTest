@@ -5,20 +5,94 @@
     display: flex;
     flex-direction: row;
     align-content: center;
+    padding: 10rpx 0;
+
+    .size-place{
+      margin-left: 10rpx;
+      line-height: 1.8;
+      width: 50%;
+      .place{
+        font-size: 34rpx;
+      }
+      .size{
+        font-size: 28rpx;
+        color: #ccc;
+      }
+    }
+    .switchover-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 24rpx;
+      color: #888;
+      border-right: 1px solid #ccc;
+      padding-right: 20rpx;
+      .switchover{
+        width: 40rpx;
+        height: 40rpx;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        font-size: 26rpx;
+        line-height: 40rpx;
+        transform: rotate(-90deg)
+      }
+    }
+    .usable-data-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100rpx;
+      padding: 0 20rpx;
+      .usable-data{
+        width: 60rpx;
+        height: 60rpx;
+      }
+    }
   }
 </style>
 <template lang="wxml">
   <view class="add-box">
-    <view class>
-      <BagIcon />
+    <view class="car-icon">
+      <Bag/>
+    </view>
+    <view class="size-place">
+      <view class="place">{{place}}</view>
+      <view class="size">{{size}}</view>
+    </view>
+    <view class="switchover-box">
+      <view class="switchover">
+        <view 
+          style="margin-left: 10rpx;color:#888"
+          class="dj-icon-base dj-icon-base-arrow"   />
+      </view>
+      <view class="">
+        <view>切换</view>
+        <view>衣袋</view>
+      </view>
+    </view>
+    <view class="usable-data-box">
+      <UsableData 
+        class="usable-data"
+      />
     </view>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy';
+import Bag from '@/components/bag'
+import UsableData from '@/components/usableData'
+
 export default class AddShoppingCar extends wepy.component {
-    components = {}
+    props={
+      place : String,
+      size: String
+    }
+    components = {
+      Bag,
+      UsableData
+    }
     data = {}
     methods = {}
     events = {}

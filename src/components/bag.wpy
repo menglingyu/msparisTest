@@ -1,0 +1,37 @@
+<style lang="less">
+.bag-box{
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-hint-box{
+  position: absolute;
+  right: 6rpx;
+  top: 6rpx;
+}
+</style>
+<template lang="wxml">
+  <view class="bag-box">
+    <view class="dj-icon-base dj-icon-base-shopping-cart"  style="color: #ff4343;" />
+    <view class="message-hint-box">
+      <MessageHint number="2"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import MessageHint from '@/components/messageHint'
+
+export default class Bag extends wepy.component {
+    components = {
+      MessageHint
+    }
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>

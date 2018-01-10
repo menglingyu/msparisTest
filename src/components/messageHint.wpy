@@ -1,0 +1,33 @@
+<template lang="wxml">
+  <view class="message-hint">
+    {{number}}
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class MessageHint extends wepy.component {
+    props = {
+      number: String
+    }
+    components = {}
+
+    data = {}
+    methods = {}
+
+    events = {}
+}
+</script>
+
+<style lang="less">
+.message-hint{
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24rpx;
+}
+</style>

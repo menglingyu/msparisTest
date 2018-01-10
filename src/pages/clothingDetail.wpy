@@ -32,7 +32,10 @@
       />
       <Size :inventory="inventory"/>
       <view class="add">
-        <AddShoppingCar />
+        <AddShoppingCar 
+          place="3月20日 7天 西湖区"
+          size="美码2号/中码S/M"
+        />
       </view>
     </view>
   </view>
