@@ -1,0 +1,84 @@
+<template lang="wxml">
+    <view class="evaluate-box">
+      <view class="head-portrait-box">
+        <HeadPortrait 
+          src="../images/image1.png"
+        />
+      </view>
+      <view class="content">
+        <view class="other">
+          <view class="left">
+            <view class="name">
+              用户昵称
+            </view>
+            <view class="star">
+              小星星
+            </view>
+          </view>
+          <view class="right">
+            4秒前
+          </view>
+        </view>
+        <view class="main-text">
+          评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容
+        </view>
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import HeadPortrait from '@/components/headPortrait'
+
+export default class Evaluate extends wepy.component {
+    props = {
+      src: String
+    }
+    components = {
+      HeadPortrait
+    }
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+.evaluate-box{
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 10rpx;
+  border-bottom: 1px solid #888;
+  flex-direction: row;
+  .head-portrait-box{
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .content{
+    flex-grow: 1;
+    .other{
+      display: flex;
+      justify-content: space-between;
+      .left{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10rpx;
+        .name{
+
+        }
+        .star{
+          font-size: 24rpx;
+        }
+      }
+      .right{
+        font-size: 26rpx;
+        color: #888;
+      }
+    }
+    .main-text{
+      font-size: 26rpx;
+    }
+  }
+}
+</style>

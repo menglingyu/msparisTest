@@ -1,80 +1,105 @@
 <style lang="less">
-  .add-box{
+.add-box{
+  display: flex;
+  flex-direction: row;
+  .add-left-box{
+    width: 80%;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     align-content: center;
-    padding: 10rpx 0;
-
+    padding: 6rpx 0;
     .size-place{
+      margin-top: 10rpx;
       margin-left: 10rpx;
-      line-height: 1.8;
+      line-height: 1.6;
       width: 50%;
       .place{
-        font-size: 34rpx;
+        font-size: 28rpx;
       }
       .size{
         font-size: 28rpx;
         color: #ccc;
       }
     }
-    .switchover-box{
+    .switchover-box, .usable-data-box{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 24rpx;
+      font-size: 20rpx;
       color: #888;
       border-right: 1px solid #ccc;
       padding-right: 20rpx;
-      .switchover{
-        width: 40rpx;
-        height: 40rpx;
+      .switchover, usable-data{
+        width: 36rpx;
+        height: 36rpx;
         border: 1px solid #ccc;
         border-radius: 50%;
-        font-size: 26rpx;
-        line-height: 40rpx;
+        font-size: 20rpx;
+        line-height: 36rpx;
         transform: rotate(-90deg)
       }
     }
     .usable-data-box{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100rpx;
-      padding: 0 20rpx;
-      .usable-data{
-        width: 60rpx;
-        height: 60rpx;
+      border:none;
+      padding:0  24rpx;
+      .usable-data-icon{
+        font-size: 38rpx;
       }
     }
   }
+  .add-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    background-color: rgba(51, 51, 51, 1);
+    color: #fff;
+  }
+}
 </style>
 <template lang="wxml">
   <view class="add-box">
-    <view class="car-icon">
-      <Bag/>
-    </view>
-    <view class="size-place">
-      <view class="place">{{place}}</view>
-      <view class="size">{{size}}</view>
-    </view>
-    <view class="switchover-box">
-      <view class="switchover">
+    <view class="add-left-box">
+      <view class="car-icon">
+        <Bag/>
+      </view>
+      <view class="size-place">
+        <view class="place">{{place}}</view>
+        <view class="size">{{size}}</view>
+      </view>
+      <view class="switchover-box">
+        <view class="switchover">
+          <view 
+            style="margin-left: 10rpx;color:#888"
+            class="dj-icon-base dj-icon-base-arrow"   />
+        </view>
+        <view class="">
+          <view>切换</view>
+          <view>衣袋</view>
+        </view>
+      </view>
+      <view class="usable-data-box">
         <view 
-          style="margin-left: 10rpx;color:#888"
-          class="dj-icon-base dj-icon-base-arrow"   />
-      </view>
-      <view class="">
-        <view>切换</view>
-        <view>衣袋</view>
+          style="color:#888"
+          class="dj-icon-base dj-icon-base-sign usable-data-icon"   
+          />
+        <view class="">
+          <view>切换</view>
+          <view>衣袋</view>
+        </view>
       </view>
     </view>
-    <view class="usable-data-box">
-      <UsableData 
-        class="usable-data"
-      />
+    <view class="add-btn">
+      <view>
+        加入
+      </view>
+      <view>
+        衣袋
+      </view>
     </view>
   </view>
 </template>

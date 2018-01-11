@@ -1,0 +1,33 @@
+<template lang="wxml">
+  <view class="head-portrait">
+    <image class="img" src="{{src}}"></image>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class HeadPortrait extends wepy.component {
+    props = {
+      src: String
+    }
+    components = {
+    }
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+  .head-portrait{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    .img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>

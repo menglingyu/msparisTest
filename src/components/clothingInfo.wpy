@@ -9,9 +9,11 @@
   box-sizing: content-box;
   padding: 14rpx  @contentPadding;
   .main-content{
+    font-size: 30rpx;
     .label-box{
       display: flex;
       flex-direction: row;
+     
       .lable{
         min-width: 40rpx;
         font-size: 26rpx;
@@ -27,6 +29,8 @@
   .reference-price{
     display: flex;
     align-items: center;
+    font-size: 28rpx;
+    color: #888;
   }
 }
 </style>
@@ -39,7 +43,7 @@
         <repeat for="{{infoData.label}}" key="index" index="index" item="item">
           <view class="lable">
             {{item}}
-          </view>
+          </view> 
         </repeat>
       </view>
     </view>

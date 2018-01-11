@@ -5,7 +5,10 @@
   <view>
     <view 
       style="color:#888"
-      class="dj-icon-base dj-icon-base-sign"   />
+      class="dj-icon-base dj-icon-base-sign"   
+      />
+      <view>查看</view>
+      <view>档期</view>
   </view>
 </template>
 

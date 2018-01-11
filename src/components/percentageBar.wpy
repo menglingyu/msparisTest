@@ -1,0 +1,54 @@
+<template lang="wxml">
+  <view class="percentage-bar-container">
+    <view class="percentage-bar">
+      <view style="width: {{percentage}}" class="present">
+      </view>
+    </view>
+    <view style="margin-left: 10rpx;">
+      ({{percentage}})
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class PercentageBar extends wepy.component {
+    props = {
+      percentage: String
+    }
+    components = {}
+    data = {
+    }
+    // computed = {
+    //     aPlus () {
+    //         return this.presentLine
+    //     }
+    // }
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+.percentage-bar-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .percentage-bar{
+    position: relative;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 50rpx;
+    height: 40rpx;
+    border-radius: 8rpx;
+    .present{
+      position: absolute;
+      height: 38rpx;
+      
+      background: #ccc;
+    }
+  }
+}
+
+</style>

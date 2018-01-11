@@ -1,0 +1,40 @@
+<template lang="wxml">
+    <view class="explain-module-box">
+      <view class="title">
+        {{dataSource.title}}
+      </view>
+      <view class="content">
+        {{dataSource.content}}
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class ExplainModule extends wepy.component {
+    props={
+      dataSource:{
+        type: Object,
+      }
+    }
+    components = {}
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+.explain-module-box{
+  padding: 20rpx;
+  border-top: 1px solid #ccc;
+  // box-sizing: content-box;
+  .title{
+    line-height: 1.8;
+  }
+  .content{
+    white-space: normal;
+    font-size: 24rpx;
+  }
+}
+</style>

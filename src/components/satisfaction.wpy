@@ -1,0 +1,95 @@
+<template lang="wxml">
+    <view class="satisfaction">
+      <view class="left">
+        <view class="text">满意度</view>
+        <view class="num">{{dataSource.percent}}</view>
+      </view>
+      <view class="right">
+        <view class="percentage-bar-box">
+          <view>尺码正好: </view>
+          <view class="percentage-bar-style">
+            <PercentageBar
+              percentage="60%"
+            />
+          </view>
+        </view>
+        <view class="percentage-bar-box">
+          <view>尺码偏小: </view>
+          <view class="percentage-bar-style">
+            <PercentageBarSmall
+              percentage="20%"
+            />
+          </view>
+        </view>
+        <view class="percentage-bar-box">
+          <view>尺码偏大: </view>
+          <view class="percentage-bar-style">
+            <PercentageBarBig
+              percentage="20%"
+            />
+          </view>
+        </view>
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import PercentageBar from '@/components/percentageBar'
+
+export default class Satisfaction extends wepy.component {
+    props = {
+      dataSource: Object
+    }
+    components = {
+      PercentageBar,
+      PercentageBarBig: PercentageBar,
+      PercentageBarSmall: PercentageBar,
+
+    }
+    data = {}
+    methods = {}
+    events = {}
+}
+</script>
+
+<style lang="less">
+  .satisfaction{
+    background: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    .left{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      width: 150rpx;
+      text-align: center;
+      font-size: 34rpx;
+      border-right: 1px solid #ccc;
+      .text{
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        padding: 10rpx 0;
+      }
+      .num{
+        margin-top: 14rpx;
+        font-size: 50rpx;
+      }
+    }
+    .right{
+      flex-grow:1;
+      padding: 6rpx 10rpx;
+      .percentage-bar-box{
+        display: flex;
+        font-size: 28rpx;
+        padding: 6rpx 0;
+        .percentage-bar-style{
+          flex-grow: 1;
+          margin-left: 10rpx;
+        }
+      }
+    }
+  }
+</style>
