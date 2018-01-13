@@ -1,0 +1,74 @@
+<template lang="wxml">
+  <view class="change-bag-photo-list">
+    <repeat for="{{list}}" key="index" index="index" item="item">
+      <view class="img-box">
+        <image src="{{item}}" class="img"/>
+        <view class="delete">
+          X
+        </view>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class PhotoList extends wepy.component {
+    props = {
+      title: String,
+      list:{
+        type: Array
+      }
+    }
+    components = {
+    }
+    onLoad(){
+
+    }
+    b(){
+
+    }
+    data = {}
+    methods = {}
+
+    events = {}
+}
+
+</script>
+
+<style lang="less">
+@deleteLength: 40rpx;
+.change-bag-photo-list{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: @deleteLength / 3 * 2 0;
+  .img-box{
+    position: relative;
+    width: 140rpx;
+    height: 180rpx;
+    border: 1px solid #ccc;
+    margin-right: @deleteLength;
+    .img{
+      width: 100%;
+      height: 100%;
+    }
+    .delete{
+      font-size: @deleteLength / 2;
+      line-height: @deleteLength;
+      position: absolute;
+      right: -@deleteLength / 2;
+      top: -@deleteLength / 2;
+      color: #fff;
+      background-color: #000;
+      width: @deleteLength;
+      height: @deleteLength;
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+  
+}
+</style>

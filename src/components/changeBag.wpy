@@ -1,0 +1,141 @@
+<style lang="less">
+.change-bag{
+  .header-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #888;
+    padding: 20rpx; 
+    box-sizing: border-box;
+    .cancel{
+      padding: 10rpx 20rpx;
+      background: #f2f2f2;
+      border-radius: 24rpx;
+      font-size: 24rpx;
+
+    }
+    .switchover{
+      color: #fff;
+    }
+   
+  }
+  .main{
+    display: flex;
+    flex-direction: row;
+
+    .left-icon{
+      padding: 30rpx;
+      display: flex;
+      align-items: center;
+      font-size: 48rpx;
+    }
+    .main-content{
+       width: 100%;
+       padding: 20rpx 0;
+      .order-info{
+        padding-bottom: 20rpx;
+        border-bottom: 1px solid #ccc;
+        font-size: 30rpx;
+      }
+      .photo-list{
+        width: 100%;
+      }
+    }
+  }
+  .add-bag{
+    display: flex;
+    flex-direction: row;
+    padding: 30rpx 40rpx;
+    .icon{
+      display: flex;
+      align-items: center;
+      margin-right: 30rpx;
+
+    }
+    .title{
+
+    }
+    .settings{
+      font-size: 26rpx;
+      color: #ccc;
+    }
+  }
+}
+</style>
+<template lang="wxml">
+  <view class="change-bag">
+    <view class="header-box">
+      <view class="cancel">
+        取消
+      </view>
+      <view class="switchover">
+        切换衣袋
+      </view>
+      <view class="bag-icon">
+        <view style="color:#000" class="dj-icon-base dj-icon-base-cart"/>
+      </view>
+    </view>
+    <repeat for="{{dataSource}}" key="index" index="index" item="item">
+        <view class="main">
+        <view class="left-icon"> 
+          <view style="color:#000" class="dj-icon-base dj-icon-base-cart"/>
+        </view>
+        <view class="main-content">
+          <view class="order-info">
+            3月20日 7天 西湖区
+          </view>
+          <view class="photo-list">
+            <PhotoList 
+              :list="boughtImg"
+            />
+          </view>
+        </view>
+      </view>
+    </repeat>
+    <view class="add-bag">
+      <view style="color:#000" class="dj-icon-base dj-icon-base-gift icon"/>
+      <view>
+        <view class="title">
+          + 创建新衣袋
+        </view>
+        <view class="settings">
+          点击设置收货地址和租期
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import PhotoList from '@/components/clothingDetail/photoList'
+
+export default class ChangeBag extends wepy.component {
+    props={
+      dataSource: Array
+    }
+    components = {
+      PhotoList
+    }
+    data = {
+      // array: ['美国', '中国', '巴西', '日本'],
+      boughtImg: [
+        '../../images/image1.png',
+        '../../images/image2.png'
+      ],
+      array: [
+        []
+      ]
+    }
+    methods = {
+      bindPickerChange: function(e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+          index: e.detail.value
+        })
+      }
+    }
+    events = {}
+}
+</script>

@@ -41,10 +41,10 @@
     <view class="row-container">
       <view  class="picker">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view>
-          租期
-        </view>
-      </picker>
+          <view>
+            租期
+          </view>
+        </picker>
       </view>
       <view class="section">
           <TimeSelector />

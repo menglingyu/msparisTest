@@ -87,11 +87,17 @@
     
   }
 }
+.change-bag-container{
+  position: fixed;
+  top: 100rpx;
+  background-color: #f2f2f2;
+  width: 100%;
+}
 
 </style>
 <template>
   <view class="container">
-    <!-- <view class="slideshow-container">
+    <view class="slideshow-container">
       <SlideShow
         :autoplay="autoplay"
         :indicatorDots='indicatorDots'
@@ -131,7 +137,7 @@
     <view class="mian-liao">
       <view>面料</view>
       <view style="color:#ccc">面料信息  厚度信息</view>
-    </view> -->
+    </view>
     <view class="good-pingjia">
       <view class="title">
         优质评价
@@ -168,6 +174,11 @@
         ^ 上拉查看美衣描述
       </view>
     </view>
+    <view class="change-bag-container">
+      <ChangeBag 
+        :dataSource="clothingBagArr"
+      />
+    </view>
   </view>
 </template>
 
@@ -180,6 +191,7 @@
   import ExplainModule from '@/components/explainModule'
   import Satisfaction from '@/components/satisfaction'
   import Evaluate from '@/components/evaluate'
+  import ChangeBag from '@/components/changeBag'
   
 
   export default class ClothingDetail extends wepy.page {
@@ -193,7 +205,8 @@
       AddShoppingCar,
       ExplainModule,
       Satisfaction,
-      Evaluate
+      Evaluate,
+      ChangeBag,
     }
     data = {
       list:[
@@ -229,7 +242,10 @@
         correct: '50%',
         small: '30%',
         bigger: '20%',
-      }
+      },
+      clothingBagArr:[
+        1,2
+      ]
     }
 
     computed = {
