@@ -1,5 +1,5 @@
 <style lang="less">
-@import "components/wepy-style/index.wxss";
+@import './components/wepy/wepy-style/index.wxss';
 @contentPadding: 24rpx;
 .container {
   height: 100%;
@@ -9,28 +9,28 @@
   justify-content: space-between;
   box-sizing: border-box;
   background: #f2f2f2;
-  .clothing-level-box{
+  .clothing-level-box {
     position: absolute;
     right: 10rpx;
     top: 10rpx;
   }
-  .product{
+  .product {
     width: 100%;
     text-align: center;
     background: #fff;
-    .title{
+    .title {
       font-size: 30rpx;
       margin-top: 14rpx;
     }
   }
-  .flex-base{
+  .flex-base {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
 }
-.has-padding-box{
+.has-padding-box {
   box-sizing: border-box;
   width: 100%;
   padding: 0rpx 30rpx;
@@ -38,8 +38,8 @@
 </style>
 
 <script>
-import wepy from 'wepy'
-import 'wepy-async-function'
+import wepy from 'wepy';
+import 'wepy-async-function';
 
 export default class extends wepy.app {
   config = {
@@ -51,70 +51,79 @@ export default class extends wepy.app {
       'pages/shippingAddress',
       'pages/shoppingCar',
       'pages/clothingDetail',
+      'pages/confirmOrder',
+      'pages/address',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'black',
     },
-    "tabBar": {
-      "list": [{
-        "pagePath": "pages/index",
-        "text": "首页"
-      }, {
-        "pagePath": "pages/infiniteClothing",
-        "text": "无限衣橱"
-      }, {
-        "pagePath": "pages/shoppingCar",
-        "text": "衣袋"
-      }, {
-        "pagePath": "pages/orderForm",
-        "text": "订单"
-      }, {
-        "pagePath": "pages/personalInfo",
-        "text": "我的"
-      }]
+    tabBar: {
+      list: [
+        {
+          pagePath: 'pages/index',
+          text: '首页',
+        },
+        {
+          pagePath: 'pages/infiniteClothing',
+          text: '无限衣橱',
+        },
+        {
+          pagePath: 'pages/shoppingCar',
+          text: '衣袋',
+        },
+        {
+          pagePath: 'pages/orderForm',
+          text: '订单',
+        },
+        {
+          pagePath: 'pages/personalInfo',
+          text: '我的',
+        },
+      ],
     },
-  }
+    debug: true,
+  };
 
   globalData = {
-    userInfo: null
-  }
+    userInfo: null,
+  };
 
-  constructor () {
-    super()
-    this.use('requestfix')
+  constructor() {
+    super();
+    this.use('requestfix');
   }
 
   onLaunch() {
-    this.testAsync()
+    this.testAsync();
   }
 
-  sleep (s) {
+  sleep(s) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('promise resolved')
-      }, s * 1000)
-    })
+        resolve('promise resolved');
+      }, s * 1000);
+    });
   }
 
-  async testAsync () {
-    const data = await this.sleep(3)
-    console.log(data)
+  async testAsync() {
+    const data = await this.sleep(3);
+    console.log(data);
   }
 
   getUserInfo(cb) {
-    const that = this
+    const that = this;
     if (this.globalData.userInfo) {
-      return this.globalData.userInfo
+      return this.globalData.userInfo;
     }
     wepy.getUserInfo({
-      success (res) {
-        that.globalData.userInfo = res.userInfo
-        cb && cb(res.userInfo)
-      }
-    })
+      success(res) {
+        that.globalData.userInfo = res.userInfo;
+        cb && cb(res.userInfo);
+      },
+    });
   }
 }
 </script>

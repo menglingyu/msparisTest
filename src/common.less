@@ -1,0 +1,37 @@
+@contentPadding: 24rpx;
+view {
+  // width: 100%;
+  font-size: 30rpx;
+  color: #666;
+}
+.position-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.flex-center(@direction) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.title-base {
+  width: 100%;
+  font-size: 30rpx;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 12rpx @contentPadding;
+  background-color: #fff;
+}
+.display-to-line {
+  display: inline;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}

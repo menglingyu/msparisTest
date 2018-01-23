@@ -1,10 +1,4 @@
-/**
- * Card Component
- * @Author: litongqian
- * @Date:   2017-12-25 16:28:25
- * @Last Modified by:
- * @Last Modified time:
- */
+
 <style lang="css">
 .dj-card {
   margin-left: 0px;

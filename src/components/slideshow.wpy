@@ -1,9 +1,9 @@
 <style lang="less">
- .slideshow-box{
-   width: 100%;
-   height: 150px;
-   white-space: nowrap
- }
+.slideshow-box {
+  width: 100%;
+  height: 150px;
+  white-space: nowrap;
+}
 </style>
 <template>
   <view class="slideshow-box">
@@ -19,31 +19,31 @@
   </view>
 </template>
 <script>
-  import wepy from 'wepy'
+import wepy from 'wepy';
 
-  export default class Slideshow extends wepy.component {
-    props = {      
-      indicatorDots: {
-          type: Boolean,
-          default: false
-      },
-      autoplay: {
-          type: Boolean,
-          default: false
-      },
-      duration: {
-          type: Number,
-          default: 20000
-      },
-      interval:{
-        type: Number,
-        default: 1000
-      }
-    }
-    onLoad () {
-      console.log(this.autoplay,"autoplay")
-      console.log(this.duration)
-      console.log(this.interval,"@@@")
-    }
+export default class Slideshow extends wepy.component {
+  props = {
+    indicatorDots: {
+      type: Boolean,
+      default: false,
+    },
+    autoplay: {
+      type: Boolean,
+      default: false,
+    },
+    duration: {
+      type: Number,
+      default: 20000,
+    },
+    interval: {
+      type: Number,
+      default: 1000,
+    },
+  };
+  onLoad() {
+    console.log(this.autoplay, 'autoplay');
+    console.log(this.duration);
+    console.log(this.interval, '@@@');
   }
+}
 </script>

@@ -1,40 +1,285 @@
 <style lang="less">
+@import '../common.less';
 
+#clothings-bag-container {
+  background-color: #f2f2f2;
+  .totality {
+    .flex-center(row);
+    justify-content: space-between;
+    width: 100%;
+    padding: @contentPadding;
+    .bag-card {
+      position: relative;
+      .flex-center(row);
+      background-color: #fff;
+      padding: 12rpx 0;
+      font-size: 24rpx;
+      .icon {
+        padding: 20rpx;
+      }
+      .massage {
+        padding-right: 20rpx;
+        text-align: left;
+      }
+    }
+  }
+  .explain {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    padding: 20rpx @contentPadding;
+    background-color: #fff;
+    .left {
+      display: flex;
+      flex-direction: row;
+      .num {
+        margin-left: 20rpx;
+        color: #2087fc;
+      }
+      .variate {
+        display: inline-block;
+        color: #ff66ff;
+      }
+    }
+    .rigth {
+    }
+  }
+  .clothing-list {
+    width: 100%;
+    .clothing-item {
+      position: relative;
+    }
+  }
+  .add-on {
+    width: 100%;
+    background: #ddd;
+    font-size: 24rpx;
+    padding: 60rpx;
+    color: #888;
+    .flex-center(row);
+    .add-o-icon {
+      color: #000;
+      font-size: 32rpx;
+      margin-right: 20rpx;
+    }
+  }
+  .close-account {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    justify-content: flex-end;
+    padding: @contentPadding @contentPadding 10rpx;
+    .content {
+      width: 200rpx;
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .hint {
+    width: 100%;
+    text-align: center;
+    padding: 6rpx;
+    font-size: 24rpx;
+    color: #888;
+    background: #f7f997;
+  }
+  .btn {
+    width: 100%;
+    .btn-style {
+      background: #888;
+      color: #fff;
+    }
+  }
+}
 </style>
 <template>
-  <view class="container">
-    12
+  <view id ="clothings-bag-container" class="container">
+    <view class="totality">
+      <repeat for="{{bagList}}" key="index" item="item">
+        <view class="bag-card">
+          <view class="icon">
+            <view class="dj-icon-base dj-icon-base-cart"  style="color: #ff4343;">
+            </view>
+          </view>
+          <view class="massage">
+            3月20日 7天
+            <view>
+              黄浦区
+            </view>
+          </view>
+          <BagLoseEfficacy text="bagLoseText"/>
+        </view>
+      </repeat>
+    </view>
+    <view class="explain">
+      <view class="left">
+        <view>
+          衣袋含有 
+          <view class="variate">
+            N/M
+          </view> 件美衣
+        </view>
+        <view class="num variate">
+          衣袋件数？
+        </view>
+      </view>
+      <view class="rigth">
+        删除此衣袋
+        <view class="dj-icon-base dj-icon-base-delete"  style="color: #ff4343;">
+        </view>
+      </view>
+    </view>
+    <view class="clothing-list">
+      <!-- <repeat for="{{bagList}}" key="index"  item="item">
+        <view class="dj-panel">
+          <Card
+            src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg"
+            rightText="¥ 999.99"
+            leftText="红烧牛肉【虚拟商品】【有库存】【有sku】"
+            componentId="index"
+            >
+            <view class="dj-card__detail-row dj-c-gray-darker">
+              <view class="dj-card__right-col">x2</view>
+              <view class="dj-card__left-col">
+                3000克 50%
+              </view>
+            </view>
+
+            <view class="dj-card__detail-row dj-c-gray-darker">
+              <view class="dj-card__left-col dj-c-red">已发货</view>
+            </view>
+          </Card>
+        </view>
+      </repeat> -->
+      <view class="dj-panel clothing-item">
+        <ClothingLoseEfficacy 
+          text="美衣"
+          right="40rpx"
+          bottom="40rpx"
+          />
+          <Card
+            src="https://img.yzcdn.cn/upload_files/2016/11/25/FpqPXlrMRjKwJs8VdTu3ZDJCj4j5.jpeg?imageView2/2/w/200/h/200/q/90/format/jpeg"
+            leftText= "气质条纹披肩外套"
+            rightText = "💎💎"
+            >
+            <view class="dj-card__detail-row dj-c-gray-darker">
+              <view class="dj-card__right-col">x2</view>
+              <view class="dj-card__left-col">
+                品牌名称
+              </view>
+            </view>
+            <view class="dj-card__detail-row dj-c-gray-darker">
+              <view class="dj-card__left-col">
+                XS 
+              </view>
+            </view>
+            <view class="dj-card__detail-row dj-c-gray-darker">
+              <view class="dj-card__right-col">
+                <view class="dj-icon-base dj-icon-base-delete"  style="color: #888;">
+                </view>
+              </view>
+              <view class="dj-card__left-col">
+                KY123W
+              </view>
+            </view>
+          </Card>
+        </view>
+    </view>
+    <view class="add-on">
+      <view class="dj-icon-base dj-icon-base-add-o add-o-icon">
+      </view>
+      去添加美衣凑满衣袋
+    </view>
+    <view class="close-account"> 
+      <view class="content">
+        <view class="row"> 
+          <view>
+            合计：
+          </view>
+          <view>
+            1
+          </view>
+        </view>
+        <view class="row"> 
+          <view>
+            会员：
+          </view>
+          <view>
+            2
+          </view>
+        </view>
+        <view class="row"> 
+          <view>
+            补差：
+          </view>
+          <view>
+            3
+          </view>
+        </view>
+        <view class="row"> 
+          <view>
+            需支付：
+          </view>
+          <view>
+            4
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hint">
+      如有失效美衣，建议删除，以免占用衣袋件数
+    </view>
+    <view class="btn">
+      <Btn1 class="btn-style">
+        ￥24  预定
+      </Btn1>
+    </view>
   </view>
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import Header from '@/components/header'
+import wepy from 'wepy';
+import Header from '../components/common/header';
+import Card from '../components/wepy/wepy-card/index';
+import Btn1 from '../components/wepy/wepy-button/index';
+import LoseEfficacy from '../components/common/loseEfficacy';
 
-  export default class ShoppingCar extends wepy.page {
-    config = {
-      navigationBarTitleText: 'www'
-    }
-    components = {}
-    data = {
+export default class ShoppingCar extends wepy.page {
+  config = {
+    navigationBarTitleText: '衣袋',
+  };
+  components = {
+    Card,
+    CardAddOn: Card,
+    BagLoseEfficacy: LoseEfficacy,
+    ClothingLoseEfficacy: LoseEfficacy,
+    Btn1,
+  };
+  data = {
+    bagList: [1, 2, 3],
+    bagLoseText: '衣袋',
+    clothingLoseText: '美衣',
+  };
 
-    }
+  computed = {
+    now() {
+      return +new Date();
+    },
+  };
 
-    computed = {
-      now () {
-        return +new Date()
-      }
-    }
+  methods = {};
 
-    methods = {
-     
-    }
+  events = {};
 
-    events = {
-    }
-
-    onLoad() {
-      let self = this
-    }
+  onLoad() {
+    let self = this;
   }
+}
 </script>

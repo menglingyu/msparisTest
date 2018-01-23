@@ -7,33 +7,28 @@
   </view>
 </template>
 <script>
-  import wepy from 'wepy'
-  import Header from '@/components/header'
+import wepy from 'wepy';
+import Header from '../components/common/header';
 
-  export default class PersonalInfo extends wepy.page {
-    config = {
-      navigationBarTitleText: "Steps 步骤条"
-    }
-    components = {}
-    data = {
+export default class PersonalInfo extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Steps 步骤条',
+  };
+  components = {};
+  data = {};
 
-    }
+  computed = {
+    now() {
+      return +new Date();
+    },
+  };
 
-    computed = {
-      now () {
-        return +new Date()
-      }
-    }
+  methods = {};
 
-    methods = {
-     
-    }
+  events = {};
 
-    events = {
-    }
-
-    onLoad() {
-      let self = this
-    }
+  onLoad() {
+    let self = this;
   }
+}
 </script>

@@ -28,55 +28,54 @@
 
 <script>
 import wepy from 'wepy';
-import HeadPortrait from '@/components/headPortrait'
+import HeadPortrait from '../components/headPortrait';
 
 export default class Evaluate extends wepy.component {
-    props = {
-      src: String
-    }
-    components = {
-      HeadPortrait
-    }
-    data = {}
-    methods = {}
-    events = {}
+  props = {
+    src: String,
+  };
+  components = {
+    HeadPortrait,
+  };
+  data = {};
+  methods = {};
+  events = {};
 }
 </script>
 
 <style lang="less">
-.evaluate-box{
+.evaluate-box {
   width: 100%;
   display: flex;
   box-sizing: border-box;
   padding: 20rpx 10rpx;
   border-bottom: 1px solid #888;
   flex-direction: row;
-  .head-portrait-box{
+  .head-portrait-box {
     width: 100rpx;
     height: 100rpx;
   }
-  .content{
+  .content {
     flex-grow: 1;
-    .other{
+    .other {
       display: flex;
       justify-content: space-between;
-      .left{
+      .left {
         display: flex;
         flex-direction: column;
         margin-left: 10rpx;
-        .name{
-
+        .name {
         }
-        .star{
+        .star {
           font-size: 24rpx;
         }
       }
-      .right{
+      .right {
         font-size: 26rpx;
         color: #888;
       }
     }
-    .main-text{
+    .main-text {
       font-size: 26rpx;
     }
   }

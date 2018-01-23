@@ -1,32 +1,33 @@
 <style lang="less">
-.addres-content-style{
+.addres-content-style {
   margin: 0;
-  .address-title{
+  .address-title {
     padding: 20rpx;
     font-size: 32rpx;
-    box-sizing:border-box;
+    box-sizing: border-box;
   }
-  .content-box{
+  .content-box {
     display: flex;
     font-size: 36rpx;
-    .icon-content{
+    .icon-content {
       margin-top: 32rpx;
       margin-right: 20rpx;
     }
-    .right-content{
+    .right-content {
       flex-grow: 2;
       text-align: right;
-      color: #FF66FF;
+      color: #ff66ff;
     }
   }
 }
-
 </style>
+
+
 <template>
   <view class="container">
     <view class="address-title dj-col-24">当前地址</view>
     <view class="dj-panel dj-col-24 addres-content-style">
-      <Cell>
+      <!-- <Cell>
         <block slot="cellbd">
           <view class="content-box">
             <!-- <view slot="leftIcon" class="dj-icon dj-icon-address" style="color:#666;"></view> -->
@@ -44,70 +45,49 @@
     </view>
     <view class="address-title  dj-col-24">收货地址</view>
     <repeat for="{{addressList}}" item="item">
-      <view class="dj-panel dj-col-24 addres-content-style">
-        <Cell>
-          <block slot="cellbd">
-            <view class="content-box">
-              <view class="icon-content">
-                <view slot="leftIcon" class="dj-icon dj-icon-address" style="color:#666;"></view>
-              </view>
-              <view>
-                <view class="dj-cell__text">
-                  {{item.personal}}
-                </view>
-                <view class="dj-cell__desc">
-                  {{item.area}}
-                </view>
-                <view class="dj-cell__desc">
-                  {{item.detail}}
-                </view>
-              </view>
-            </view>
-          </block>
-        </Cell>
-      </view>
+      <Address :addressData="item"/>
     </repeat>
     
   </view>
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import Cell from '@/components/wepy-cell/index'
+import wepy from 'wepy';
+import Cell from '../components/wepy/wepy-cell/index';
+import Address from '../components/common/address';
 
-  export default class ShippingAddress extends wepy.page {
-    config = {
-      navigationBarTitleText: '选择收货地址'
-    }
-    data={
-      addressList:[
-        {
-          personal: '李益雄 18516503389',
-          area: '浙江省 杭州市 西湖区',
-          detail: '黄龙广场598号4楼5-1号'
-        },{
-          personal: '李益雄 18516503389',
-          area: '浙江省 杭州市 西湖区',
-          detail: '黄龙广场598号4楼5-1号'
-        },{
-          personal: '李益雄 18516503389',
-          area: '浙江省 杭州市 西湖区',
-          detail: '黄龙广场598号4楼5-1号'
-        }
-      ]
-    }
-    components = {
-      Cell: Cell
-    }
+export default class ShippingAddress extends wepy.page {
+  config = {
+    navigationBarTitleText: '选择收货地址',
+  };
+  data = {
+    addressList: [
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+    ],
+  };
+  components = {
+    // Cell,
+    Address,
+  };
 
-    methods = {
-    }
+  methods = {};
 
-    events = {
-    }
+  events = {};
 
-    onLoad() {
-
-    }
-  }
+  onLoad() {}
+}
 </script>

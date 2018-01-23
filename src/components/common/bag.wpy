@@ -1,5 +1,5 @@
 <style lang="less">
-.bag-box{
+.bag-box {
   position: relative;
   width: 100rpx;
   height: 100rpx;
@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
 }
-.message-hint-box{
+.message-hint-box {
   position: absolute;
   right: 6rpx;
   top: 6rpx;
@@ -17,21 +17,25 @@
   <view class="bag-box">
     <view class="dj-icon-base dj-icon-base-shopping-cart"  style="color: #ff4343;" />
     <view class="message-hint-box">
-      <MessageHint number="2"/>
+       <badge
+        className="demo__icon"
+        countText="2"
+        >
     </view>
+   
   </view>
 </template>
 
 <script>
 import wepy from 'wepy';
-import MessageHint from '@/components/messageHint'
+import badge from '../../components/wepy/wepy-badge/index';
 
 export default class Bag extends wepy.component {
-    components = {
-      MessageHint
-    }
-    data = {}
-    methods = {}
-    events = {}
+  components = {
+    badge,
+  };
+  data = {};
+  methods = {};
+  events = {};
 }
 </script>

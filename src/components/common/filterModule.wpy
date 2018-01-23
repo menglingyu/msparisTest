@@ -1,35 +1,34 @@
 <style lang="less">
 @lineHight: 30rpx;
-.select-style{
+.select-style {
   display: flex;
   flex-direction: row;
 }
-.filtrate{
+.filtrate {
   background: #fff;
   padding: 0rpx 0 30rpx;
-  .row-container{
+  .row-container {
     display: flex;
     padding: 20rpx 0 20rpx 40rpx;
     font-size: @lineHight;
     border-bottom: 1px solid #ccc;
     color: #666;
-    .lable{
+    .lable {
       display: inline-block;
       line-height: @lineHight * 2;
       margin-right: 16rpx;
       color: #000;
     }
   }
-  .picker{
+  .picker {
     width: 20%;
   }
-  .section{
+  .section {
     text-align: right;
     width: 80%;
     padding-right: 36rpx;
   }
 }
-
 </style>
 
 <template lang="wxml">
@@ -96,41 +95,46 @@
 
 <script>
 import wepy from 'wepy';
-import Select1 from '@/components/wepy-select/index'
-import TimeSelector from '@/components/timeSelector'
+import Select1 from '../../components/wepy/wepy-select/index';
+import TimeSelector from '../../components/common/timeSelector';
 
 export default class FilterModule extends wepy.component {
-  constructor(){
+  constructor() {
     super();
-    this.handleSelectChange=this.handleSelectChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
   components = {
     Select1,
-    TimeSelector
-  }
+    TimeSelector,
+  };
   data = {
     items: [
       {
         padding: 0,
         value: '1',
         name: 'XXS/XS',
-      },{
+      },
+      {
         padding: 0,
-        value: '2',   
+        value: '2',
         name: 'S',
-      },{
+      },
+      {
         padding: 0,
         value: '3',
         name: 'M',
-      },{
+      },
+      {
         padding: 0,
         value: '4',
         name: 'L',
-      },{
+      },
+      {
         padding: 0,
         value: '5',
         name: 'XL+',
-      },{
+      },
+      {
         padding: 0,
         value: '6',
         name: '均码',
@@ -139,15 +143,15 @@ export default class FilterModule extends wepy.component {
 
     checked: {
       base: '1',
-      color: '1'
+      color: '1',
     },
-    activeColor: '#4b0'
-  }
+    activeColor: '#4b0',
+  };
   handleSelectChange({ componentId, value }) {
-      this.checked[componentId]=value;
-      this.$apply();
+    this.checked[componentId] = value;
+    this.$apply();
   }
-  methods = {}
-  events = {}
+  methods = {};
+  events = {};
 }
 </script>

@@ -1,0 +1,36 @@
+<template lang="wxml">
+    <view class="goTop">
+      <view class="dj-icon-base dj-icon-base-arrow goTopItem">
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class GoTop extends wepy.component {
+  components = {};
+  data = {};
+  methods = {};
+  events = {};
+}
+</script>
+
+<style lang="less">
+@goTopLine: 80rpx;
+.goTop {
+  width: @goTopLine;
+  height: @goTopLine;
+  line-height: @goTopLine;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transform: rotate(-90deg);
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  .goTopItem {
+    position: absolute;
+    color: #fff;
+    left: 24rpx;
+  }
+}
+</style>

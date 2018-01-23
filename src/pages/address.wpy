@@ -1,0 +1,61 @@
+<style lang="less">
+@import '../common.less';
+#address {
+}
+</style>
+<template>
+  <view class="container" id="address">
+    <view class="{{currentPage==0?'':'hidden'}} dj-col-24">
+      <AddressList></AddressList>
+       <!-- :list.sync="addressList" @currentPage.user="getCurrentPage" -->
+    </view>
+    <!-- <view class="{{currentPage==1?'':'hidden'}}">
+      <addressAdd @currentPage.user="getCurrentPage"></addressAdd>
+    </view>
+    <view class="{{currentPage==2?'':'hidden'}}">
+      <addressEdit @currentPage.user="getCurrentPage" ></addressEdit>
+    </view> -->
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import AddressList from '../components/addressCtp/addressList';
+
+export default class Address extends wepy.page {
+  config = {
+    navigationBarTitleText: '地址管理',
+  };
+  components = {
+    AddressList,
+  };
+  data = {
+    addressMsg: {
+      personal: '李益雄 18516503389',
+      area: '浙江省 杭州市 西湖区',
+      detail: '黄龙广场598号4楼5-1号',
+    },
+    fieldName: {
+      name: 'fieldName',
+      title: '留言',
+      placeholder: '选填，可填写您对订单的附加要求',
+      value: '',
+    },
+    giveBackHint: {
+      componentId: 'giveBackHint',
+      text: '归还美衣时，如有环保袋请务必一并归还，否则视为1件美衣未归还',
+      type: 'giveBackHint',
+    },
+  };
+
+  computed = {};
+
+  methods = {};
+
+  events = {};
+
+  onLoad() {
+    let self = this;
+  }
+}
+</script>

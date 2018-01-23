@@ -1,0 +1,67 @@
+<style lang="less">
+.addres-content-style {
+  box-sizing: border-box;
+  margin: 0;
+  .address-title {
+    padding: 20rpx;
+    font-size: 32rpx;
+    box-sizing: border-box;
+  }
+  .content-box {
+    display: flex;
+    font-size: 36rpx;
+    .icon-content {
+      margin-top: 32rpx;
+      margin-right: 20rpx;
+    }
+    .right-content {
+      flex-grow: 2;
+      text-align: right;
+      color: #ff66ff;
+    }
+  }
+}
+</style>
+<template lang="wxml">
+  <view class="dj-panel dj-col-24 addres-content-style">
+        <Cell>
+          <block slot="cellbd">
+            <view class="content-box">
+              <view class="icon-content">
+                <view slot="leftIcon" class="dj-icon dj-icon-address" style="color:#666;"></view>
+              </view>
+              <view>
+                <view class="dj-cell__text">
+                  {{addressData.personal}}
+                </view>
+                <view class="dj-cell__desc">
+                  {{addressData.area}}
+                </view>
+                <view class="dj-cell__desc">
+                  {{addressData.detail}}
+                </view>
+              </view>
+            </view>
+          </block>
+        </Cell>
+      </view>
+
+</template>
+
+<script>
+import wepy from 'wepy';
+import Cell from '../../components/wepy/wepy-cell/index';
+export default class Address extends wepy.component {
+  props = {
+    addressData: Object,
+  };
+  components = {
+    Cell,
+  };
+  methods = {};
+  events = {};
+  onLoad() {
+    console.log(this.aaa, '!11');
+  }
+}
+</script>

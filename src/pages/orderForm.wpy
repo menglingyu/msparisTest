@@ -8,33 +8,28 @@
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import Header from '@/components/header'
+import wepy from 'wepy';
+import Header from '../components/common/header';
 
-  export default class OrderForm extends wepy.page {
-    config = {
-      navigationBarTitleText: '我的订单'
-    }
-    components = {}
-    data = {
+export default class OrderForm extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的订单',
+  };
+  components = {};
+  data = {};
 
-    }
+  computed = {
+    now() {
+      return +new Date();
+    },
+  };
 
-    computed = {
-      now () {
-        return +new Date()
-      }
-    }
+  methods = {};
 
-    methods = {
-     
-    }
+  events = {};
 
-    events = {
-    }
-
-    onLoad() {
-      let self = this
-    }
+  onLoad() {
+    let self = this;
   }
+}
 </script>

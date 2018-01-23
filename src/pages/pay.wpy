@@ -1,0 +1,47 @@
+<style lang="less">
+@import '../common.less';
+</style>
+<template>
+  <view class="container pay-container">
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+// import Header from '../components/common/header';
+// import Card from '../components/wepy/wepy-card/index';
+// import Btn1 from '../components/wepy/wepy-button/index';
+// import LoseEfficacy from '../components/common/loseEfficacy';
+
+export default class Pay extends wepy.page {
+  config = {
+    navigationBarTitleText: '衣袋',
+  };
+  components = {
+    // Card,
+    // CardAddOn: Card,
+    // BagLoseEfficacy: LoseEfficacy,
+    // ClothingLoseEfficacy: LoseEfficacy,
+    // Btn1,
+  };
+  data = {
+    bagList: [1, 2, 3],
+    bagLoseText: '衣袋',
+    clothingLoseText: '美衣',
+  };
+
+  computed = {
+    now() {
+      return +new Date();
+    },
+  };
+
+  methods = {};
+
+  events = {};
+
+  onLoad() {
+    let self = this;
+  }
+}
+</script>

@@ -1,56 +1,54 @@
 <style lang="less">
-  @bannerContentH: 120rpx;
-  .slideshow-box{
-    background: #fff;
-    width: 100%;
-  }
-  .slide-image{
-    width: 100%;
-    height: 300rpx;
-  }
-  .tab{
-    font-size: 24rpx;
-    padding: 14rpx 20rpx;
-    background: #fff;
-  }
-  .banner{
-    display: flex;
-    flex-direction: row;
-    margin: 20rpx 0;
-    background: #fff;
-    .banner-box{
-      font-size: 25rpx;
-      text-align: center;
-      border-right: 1px solid #f2f2f2;
-      .content-box{
-        width: 80%;
-        margin: 0 auto;
-        .main-content{
-          display: flex;
-          justify-content:center;
-          align-content: center;
-          flex-direction: column;
-          font-size: 30rpx;
-          height: @bannerContentH;
-        }
-        .money{
-          font-size: 30rpx;
-        }
-        .title{
-          .main-content;
-          height: @bannerContentH;
-          font-size: 34rpx;
-        }
-      
+@bannerContentH: 120rpx;
+.slideshow-box {
+  background: #fff;
+  width: 100%;
+}
+.slide-image {
+  width: 100%;
+  height: 300rpx;
+}
+.tab {
+  font-size: 24rpx;
+  padding: 14rpx 20rpx;
+  background: #fff;
+}
+.banner {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+  background: #fff;
+  .banner-box {
+    font-size: 25rpx;
+    text-align: center;
+    border-right: 1px solid #f2f2f2;
+    .content-box {
+      width: 80%;
+      margin: 0 auto;
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        font-size: 30rpx;
+        height: @bannerContentH;
+      }
+      .money {
+        font-size: 30rpx;
+      }
+      .title {
+        .main-content;
+        height: @bannerContentH;
+        font-size: 34rpx;
       }
     }
-    
   }
-  .product{
-    width: 100%;
-    text-align: center;
-    background: #fff;
-  }
+}
+.product {
+  width: 100%;
+  text-align: center;
+  background: #fff;
+}
 </style>
 <template>
   <view class="container">
@@ -178,128 +176,145 @@
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import Header from '@/components/header'
-  import Btn1 from '@/components/wepy-button/index'
-  import Service from '@/components/service'
-  import Slideshow from '@/components/slideshow'
-  import Tab from '@/components/tab'
-  import Banner from '@/components/banner'
-  import SlideableProduct from '@/components/slideableProduct'
-  import ProductListRoll from '@/components/productListRoll'
+import wepy from 'wepy';
+import Header from '../components/common/header';
+import Btn1 from '../components/wepy/wepy-button/index';
+import Service from '../components/service';
+import Slideshow from '../components/slideshow';
+import Tab from '../components/tab';
+import Banner from '../components/banner';
+import SlideableProduct from '../components/slideableProduct';
+import ProductListRoll from '../components/productListRoll';
+import tip from '../utils/tips';
 
-  
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'www',
+  };
+  components = {
+    Button: Btn1,
+    Header,
+    Service,
+    Slideshow: Slideshow,
+    Tab: Tab,
+    Banner1: Banner,
+    Banner2: Banner,
+    EveryDayLuxury: SlideableProduct,
+    EveryDayFashion: SlideableProduct,
+    EveryDayLuxuryList: ProductListRoll,
+    EveryDayFashionList: ProductListRoll,
+  };
+  data = {
+    list: ['../images/image1.png', '../images/image1.png'],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    tabList: [
+      {
+        url: 'www.baidu.com',
+        text: '海外大牌',
+      },
+      {
+        url: 'www.baidu.com',
+        text: '无限换穿',
+      },
+      {
+        url: 'www.baidu.com',
+        text: '喜欢才买',
+      },
+      {
+        url: 'www.baidu.com',
+        text: '往返包邮',
+      },
+    ],
+    leftNav: { text: '轻奢会员', url: '' },
+    rightNav: { text: '更多', url: '' },
+    fashionLeftNav: { text: '时尚会员', url: '' },
+    fashionRightNav: { text: '更多', url: '' },
+    productList1: [
+      {
+        level: 0,
+        brandName: '品牌名称',
+        referencePrice: '2444',
+        jewel: '💎💎',
+        url: '../images/image2.png',
+        size: 'XS  S  M  L  XL  均码',
+        clothName: 'nike',
+      },
+      {
+        level: 0,
+        brandName: '品牌名称',
+        referencePrice: '2444',
+        jewel: '💎💎',
+        url: '../images/image2.png',
+        size: 'XS  S  M  L  XL  均码',
+        clothName: 'nike',
+      },
+      {
+        level: 0,
+        brandName: '品牌名称',
+        referencePrice: '2444',
+        jewel: '💎💎',
+        url: '../images/image2.png',
+        size: 'XS  S  M  L  XL  均码',
+        clothName: 'nike',
+      },
+      {
+        level: 0,
+        brandName: '品牌名称',
+        referencePrice: '2444',
+        jewel: '💎💎',
+        url: '../images/image2.png',
+        size: 'XS  S  M  L  XL  均码',
+        clothName: 'nike',
+      },
+      {
+        level: 0,
+        brandName: '品牌名称',
+        referencePrice: '2444',
+        jewel: '💎💎',
+        url: '../images/image2.png',
+        size: 'XS  S  M  L  XL  均码',
+        clothName: 'nike',
+      },
+    ],
+  };
 
-  export default class Index extends wepy.page {
-    config = {
-      navigationBarTitleText: 'www'
-    }
-    components = {
-      Button: Btn1,
-      Header,
-      Service,
-      Slideshow: Slideshow,
-      Tab:Tab,
-      Banner1:Banner,
-      Banner2:Banner,
-      EveryDayLuxury: SlideableProduct,
-      EveryDayFashion: SlideableProduct,
-      EveryDayLuxuryList: ProductListRoll,
-      EveryDayFashionList: ProductListRoll
+  computed = {
+    now() {
+      return +new Date();
+    },
+  };
 
-    }
-    data = {
-      list:[
-        '../images/image1.png',
-        '../images/image1.png'
-      ],
-      indicatorDots: true,
-      autoplay: true,
-      interval: 5000,
-      duration: 1000,
-      tabList:[
-        {
-          url:"www.baidu.com",
-          text:"海外大牌"
-        },{
-          url:"www.baidu.com",
-          text:"无限换穿"
-        },{
-          url:"www.baidu.com",
-          text:"喜欢才买"
-        },{
-          url:"www.baidu.com",
-          text:"往返包邮"
-        }
-      ],
-      leftNav: {text: "轻奢会员",url: ""},
-      rightNav: {text: "更多", url: ""},
-      fashionLeftNav:{text: "时尚会员",url: ""},
-      fashionRightNav:{text: "更多",url: ""},
-      productList1:[
-        {
-          level:0,
-          brandName:'品牌名称',
-          referencePrice:"2444",
-          jewel: '💎💎',
-          url:'../images/image2.png',
-          size:"XS  S  M  L  XL  均码",
-          clothName:"nike"
-        },{
-          level:0,
-          brandName:'品牌名称',
-          referencePrice:"2444",
-          jewel: '💎💎',
-          url:'../images/image2.png',
-          size:"XS  S  M  L  XL  均码",
-          clothName:"nike"
-        },{
-          level:0,
-          brandName:'品牌名称',
-          referencePrice:"2444",
-          jewel: '💎💎',
-          url:'../images/image2.png',
-          size:"XS  S  M  L  XL  均码",
-          clothName:"nike"
-        },{
-          level:0,
-          brandName:'品牌名称',
-          referencePrice:"2444",
-          jewel: '💎💎',
-          url:'../images/image2.png',
-          size:"XS  S  M  L  XL  均码",
-          clothName:"nike"
-        },{
-          level:0,
-          brandName:'品牌名称',
-          referencePrice:"2444",
-          jewel: '💎💎',
-          url:'../images/image2.png',
-          size:"XS  S  M  L  XL  均码",
-          clothName:"nike"
-        },
-      ]
-    }
+  methods = {};
 
-    computed = {
-      now () {
-        return +new Date()
-      }
-    }
-
-    methods = {
-     
-    }
-
-    events = {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
-    }
-
-    onLoad() {
-      let self = this
-    }
+  initial() {
+    this.discoverList = [];
   }
+  onLoad() {
+    // wx.showLoading({
+    //   title: '加载中',
+    // });
+
+    setTimeout(function() {
+      wx.hideLoading();
+    }, 2000);
+    // this.initial();
+    // this.getDiscoverList();
+    // this.getAdList();
+  }
+  async getAdList() {
+    console.log(this);
+    // const json = await api.getAdList({
+    //   query: {},
+    // });
+    // if (json.data.code == 0) {
+    //   this.adList = json.data.list;
+    //   this.$apply();
+    // } else {
+    // }
+  }
+  async getDiscoverList() {}
+}
 </script>

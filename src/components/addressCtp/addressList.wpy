@@ -1,0 +1,85 @@
+<style lang="less">
+@import '../../common.less';
+.address {
+  .fail-address {
+    .title {
+      position: relative;
+      font-size: 24rpx;
+      padding: 20rpx @contentPadding;
+    }
+    .item {
+      position: relative;
+      margin-top: 10rpx;
+    }
+  }
+  .lose-efficacy-box {
+    .lose-efficacy {
+      display: none;
+    }
+  }
+}
+</style>
+<template lang="wxml">
+  <view class="address dj-col-24">
+    <repeat for="{{addressList}}" item="item">
+      <Address :addressData="item"/>
+    </repeat>
+    <view class="fail-address">
+      <view class="title">
+        <view class="">
+          不可选地址
+        </view>
+        <view class="">
+          (您在日历上选择的配送目的地与下列地址不匹配）
+        </view>
+      </view>
+      <repeat for="{{addressList}}" item="item">
+        <view class="item">
+          <InvalidAddress :addressData="item"/>
+          <LoseEfficacy class="lose-efficacy-box"/>
+        </view>
+      </repeat>
+      
+    </view>
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import SwipeDelete from '../common/wepy-swipe-delete';
+import Address from '../../components/common/address';
+import LoseEfficacy from '../../components/common/loseEfficacy';
+
+export default class AddressList extends wepy.component {
+  props = {};
+  onLoad() {}
+  components = {
+    SwipeDelete,
+    Address,
+    InvalidAddress: Address,
+    LoseEfficacy,
+  };
+  data = {
+    addressList: [
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+      {
+        personal: '李益雄 18516503389',
+        area: '浙江省 杭州市 西湖区',
+        detail: '黄龙广场598号4楼5-1号',
+      },
+    ],
+  };
+  methods = {};
+  events = {};
+}
+</script>

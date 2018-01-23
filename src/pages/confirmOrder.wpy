@@ -1,0 +1,150 @@
+<style lang="less">
+@import '../common.less';
+#confirm-order {
+  // .title {
+  //   background-color: #fff;
+  // }
+  .hint {
+    color: #ff66ff;
+  }
+  .each-diamond {
+    color: #ff66ff;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10rpx @contentPadding;
+    font-size: 30rpx;
+    .original-price {
+      display: inline;
+      color: #888;
+      font-size: 26rpx;
+      text-align: left;
+    }
+  }
+  .money {
+    padding: @contentPadding;
+    padding-bottom: 100rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: #333;
+    .money-row {
+      justify-content: space-between;
+    }
+  }
+}
+</style>
+<template>
+  <view class="container" id="confirm-order">
+    <view class="title-base">
+      配送信息
+    </view>
+    <Address :addressData="addressMsg"//>
+    <view class="hint dj-panel dj-col-24">
+      <CellHint
+        cellbd="提示: 请于 2017/1/14 按时归还"
+        cellft="如何归还"
+        >
+        <!-- <view slot="leftIcon" class="dj-cell__icon dj-icon dj-icon-checked" style="color:#38f;"></view> -->
+      </CellHint>
+    </view>
+    <view class="tenancy-term dj-panel dj-col-24">
+      <CellTerm
+        cellbd="租期：2017/1/12-2017/1/14"
+        >
+        <!-- <view slot="leftIcon" class="dj-cell__icon dj-icon dj-icon-checked" style="color:#38f;"></view> -->
+      </CellTerm>
+    </view>
+    <view class="clothing-list">
+      服装列表
+    </view>
+    <view class="dj-panel dj-col-24">
+      <Cell3
+        cellbd="补差额度 💎x4"
+        cellft="24"
+        >
+      </Cell3>
+    </view>
+    <view class="each-diamond">
+      每个💎：<view class="dj-text-deleted original-price">￥10 </view>￥6
+    </view>
+    <view class="dj-panel dj-col-24">
+      <Field1 :field.sync="fieldName"></Field1>
+    </view>
+    <view class="money dj-panel dj-col-24">
+      <view class="row money-row">
+        <view style="font-size: 36rpx" class="">
+          总金额
+        </view>
+        <view class="">
+          ￥0.00
+        </view>
+      </view>
+      <view class="row money-row">
+        <view class="">
+          运费
+        </view>
+        <view class="">
+          +￥0.00
+        </view>
+      </view>
+    </view>
+    <view class="dj-panel">
+      <Noticebar :noticebar.sync="giveBackHint"></Noticebar>
+      <view class="">
+        <Submit money="24￥"/>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import Cell from '../components/wepy/wepy-cell/index';
+import Field1 from '../components/wepy/wepy-field/index';
+import Noticebar from '../components/wepy/wepy-noticebar/index';
+import Address from '../components/common/address';
+import Submit from '../components/common/submit';
+
+export default class ConfirmOrder extends wepy.page {
+  config = {
+    navigationBarTitleText: '确认订单',
+  };
+  components = {
+    Address,
+    CellHint: Cell,
+    CellMode: Cell,
+    CellTerm: Cell,
+    Cell3: Cell,
+    Field1,
+    Noticebar,
+    Submit,
+  };
+  data = {
+    addressMsg: {
+      personal: '李益雄 18516503389',
+      area: '浙江省 杭州市 西湖区',
+      detail: '黄龙广场598号4楼5-1号',
+    },
+    fieldName: {
+      name: 'fieldName',
+      title: '留言',
+      placeholder: '选填，可填写您对订单的附加要求',
+      value: '',
+    },
+    giveBackHint: {
+      componentId: 'giveBackHint',
+      text: '归还美衣时，如有环保袋请务必一并归还，否则视为1件美衣未归还',
+      type: 'giveBackHint',
+    },
+  };
+
+  computed = {};
+
+  methods = {};
+
+  events = {};
+
+  onLoad() {
+    let self = this;
+  }
+}
+</script>

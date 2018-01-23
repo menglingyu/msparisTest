@@ -1,0 +1,58 @@
+<style lang="less">
+@import '../../common.less';
+.submit {
+  padding-right: 0;
+  display: flex;
+  justify-content: space-between;
+  .left {
+    display: flex;
+    font-size: 30rpx;
+    padding: @contentPadding;
+    align-items: baseline;
+    .money-style {
+      font-size: 46rpx;
+      color: red;
+    }
+  }
+  .right {
+    background-color: rgba(204, 0, 0, 1);
+    display: flex;
+    padding: 0 60rpx;
+    color: #fff;
+    align-items: center;
+  }
+}
+</style>
+<template lang="wxml">
+<view class="submit">
+  <view class="left">
+    <view class="">
+      合计：
+    </view>
+    <view class="money-style">
+      {{money}}
+    </view>
+  </view>
+  <view class="right">
+    提交订单
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import Cell from '../../components/wepy/wepy-cell/index';
+export default class Submit extends wepy.component {
+  props = {
+    money: [String, Number],
+  };
+  components = {
+    Cell,
+  };
+  methods = {};
+  events = {};
+  onLoad() {
+    console.log(this.aaa, '!11');
+  }
+}
+</script>

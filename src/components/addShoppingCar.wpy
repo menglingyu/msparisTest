@@ -1,8 +1,8 @@
 <style lang="less">
-.add-box{
+.add-box {
   display: flex;
   flex-direction: row;
-  .add-left-box{
+  .add-left-box {
     width: 80%;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
@@ -10,20 +10,21 @@
     flex-direction: row;
     align-content: center;
     padding: 6rpx 0;
-    .size-place{
+    .size-place {
       margin-top: 10rpx;
       margin-left: 10rpx;
       line-height: 1.6;
       width: 50%;
-      .place{
+      .place {
         font-size: 28rpx;
       }
-      .size{
+      .size {
         font-size: 28rpx;
         color: #ccc;
       }
     }
-    .switchover-box, .usable-data-box{
+    .switchover-box,
+    .usable-data-box {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -32,25 +33,26 @@
       color: #888;
       border-right: 1px solid #ccc;
       padding-right: 20rpx;
-      .switchover, usable-data{
+      .switchover,
+      usable-data {
         width: 36rpx;
         height: 36rpx;
         border: 1px solid #ccc;
         border-radius: 50%;
         font-size: 20rpx;
         line-height: 36rpx;
-        transform: rotate(-90deg)
+        transform: rotate(-90deg);
       }
     }
-    .usable-data-box{
-      border:none;
-      padding:0  24rpx;
-      .usable-data-icon{
+    .usable-data-box {
+      border: none;
+      padding: 0 24rpx;
+      .usable-data-icon {
         font-size: 38rpx;
       }
     }
   }
-  .add-btn{
+  .add-btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,9 +79,8 @@
             style="margin-left: 10rpx;color:#888"
             class="dj-icon-base dj-icon-base-arrow"   />
         </view>
-        <view class="">
-          <view>切换</view>
-          <view>衣袋</view>
+        <view @tap="changeBagFun">
+          <text>切换\n衣袋</text>
         </view>
       </view>
       <view class="usable-data-box">
@@ -88,38 +89,37 @@
           class="dj-icon-base dj-icon-base-sign usable-data-icon"   
           />
         <view class="">
-          <view>切换</view>
-          <view>衣袋</view>
+          <text>查看\n档期</text>
         </view>
       </view>
     </view>
     <view class="add-btn">
-      <view>
-        加入
-      </view>
-      <view>
-        衣袋
-      </view>
+      <text>加入\n衣袋</text>
     </view>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy';
-import Bag from '@/components/bag'
-import UsableData from '@/components/usableData'
+import Bag from '../components/common/bag';
+import UsableData from '../components/usableData';
 
 export default class AddShoppingCar extends wepy.component {
-    props={
-      place : String,
-      size: String
-    }
-    components = {
-      Bag,
-      UsableData
-    }
-    data = {}
-    methods = {}
-    events = {}
+  props = {
+    place: String,
+    size: String,
+  };
+  components = {
+    Bag,
+    UsableData,
+  };
+  data = {};
+  methods = {
+    changeBagFun() {
+      console.log(111);
+      this.$emit('changeBagFun', 100);
+    },
+  };
+  events = {};
 }
 </script>

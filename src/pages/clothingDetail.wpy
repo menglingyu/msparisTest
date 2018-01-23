@@ -1,24 +1,24 @@
 <style lang="less">
-.slideshow-container{
+.slideshow-container {
   background: #fff;
   width: 100%;
-  .slideshow-box{
+  .slideshow-box {
     position: relative;
     width: 100%;
     height: 150px;
     white-space: nowrap;
-    .slide-image{
+    .slide-image {
       width: 100%;
       height: 300rpx;
     }
   }
 }
-.messsage{
+.messsage {
   margin-top: 30rpx;
   background: #fff;
 }
-.mian-liao{
-  display: flex;    
+.mian-liao {
+  display: flex;
   width: 100%;
   box-sizing: border-box;
   border-top: 1px solid #ccc;
@@ -28,36 +28,36 @@
   font-size: 28rpx;
   background: #fff;
 }
-.good-pingjia{
+.good-pingjia {
   width: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   padding: 10rpx 20rpx;
-  .title{
+  .title {
     text-align: left;
   }
 }
-.evaluate-container{
+.evaluate-container {
   width: 100%;
   padding: 20rpx;
   box-sizing: border-box;
 }
-.brand-container{
+.brand-container {
   width: 100%;
   background-color: #fff;
-  .brand-top{
+  .brand-top {
     display: flex;
     justify-content: space-between;
     padding: 20rpx;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
     align-items: center;
-    
+
     box-sizing: border-box;
-    .right{
+    .right {
       display: flex;
       flex-direction: row;
       align-items: center;
-      .brand-logo{
+      .brand-logo {
         width: 120rpx;
         height: 120rpx;
         border: 1px solid #ccc;
@@ -65,35 +65,31 @@
       }
     }
   }
-  .text-detail{
+  .text-detail {
     border-bottom: 1px solid #ccc;
     margin-left: 20rpx;
     padding: 20rpx 20rpx 20rpx 0;
     box-sizing: border-box;
   }
 }
-.clothing-describe-container{
+.clothing-describe-container {
   display: flex;
-  padding: 20rpx; 
+  padding: 20rpx;
   flex-direction: row;
   justify-content: center;
-  color:#888;
+  color: #888;
   margin-top: 40rpx;
   background-color: #fff;
   border: 1px solid #ccc;
   width: 100%;
   font-size: 30rpx;
-  .clothing-describe{
-    
+  .clothing-describe {
   }
 }
-.change-bag-container{
-  position: fixed;
-  top: 100rpx;
+.change-bag-container {
   background-color: #f2f2f2;
   width: 100%;
 }
-
 </style>
 <template>
   <view class="container">
@@ -120,6 +116,7 @@
         <AddShoppingCar 
           place="3月20日 7天 西湖区"
           size="美码2号/中码S/M"
+          @changeBagFun.user="changeBagFun"
         />
       </view>
     </view>
@@ -174,86 +171,87 @@
         ^ 上拉查看美衣描述
       </view>
     </view>
-    <view class="change-bag-container">
+    <view wx:if="{{changeBagShow}}" class="change-bag-container">
       <ChangeBag 
         :dataSource="clothingBagArr"
       />
     </view>
+    <!-- <Calendar /> -->
   </view>
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import SlideShow from '@/components/slideshow'
-  import ClothingInfo from '@/components/clothingInfo'
-  import Size from '@/components/size'
-  import AddShoppingCar from '@/components/addShoppingCar'
-  import ExplainModule from '@/components/explainModule'
-  import Satisfaction from '@/components/satisfaction'
-  import Evaluate from '@/components/evaluate'
-  import ChangeBag from '@/components/changeBag'
-  
+import wepy from 'wepy';
+import SlideShow from '../components/slideshow';
+import ClothingInfo from '../components/clothingInfo';
+import Size from '../components/size';
+import AddShoppingCar from '../components/addShoppingCar';
+import ExplainModule from '../components/explainModule';
+import Satisfaction from '../components/satisfaction';
+import Evaluate from '../components/evaluate';
+import ChangeBag from '../components/pocket/changeBag';
+import Calendar from '../components/common/calendar';
 
-  export default class ClothingDetail extends wepy.page {
-    config = {
-
-    }
-    components = {
-      SlideShow,
-      ClothingInfo,
-      Size,
-      AddShoppingCar,
-      ExplainModule,
-      Satisfaction,
-      Evaluate,
-      ChangeBag,
-    }
-    data = {
-      list:[
-        '../../images/image1.png',
-        '../../images/image1.png'
-      ],
-      indicatorDots: true,
-      autoplay: true,
-      interval: 5000,
-      duration: 1000,
-      infoData: {
-        level: '💎💎',
-        clothingName: '爱马仕',
-        label:['1','2','3'],
-        referencePrice: '2000'
-      },
-      inventory:[{
+export default class ClothingDetail extends wepy.page {
+  config = {};
+  components = {
+    SlideShow,
+    ClothingInfo,
+    Size,
+    AddShoppingCar,
+    ExplainModule,
+    Satisfaction,
+    Evaluate,
+    ChangeBag,
+    Calendar,
+  };
+  data = {
+    list: ['../../images/image1.png', '../../images/image1.png'],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    infoData: {
+      level: '💎💎',
+      clothingName: '爱马仕',
+      label: ['1', '2', '3'],
+      referencePrice: '2000',
+    },
+    inventory: [
+      {
         us: '2',
-        cn: 's/m'
-      },{
+        cn: 's/m',
+      },
+      {
         us: '3',
-        cn: 'm/l'
-      },{
+        cn: 'm/l',
+      },
+      {
         us: '2',
-        cn: 'xl'
-      }],
-      dianPing:{
-        title:'设计师点评',
-        content:"设计师点评设计师点评设计师点评设计师点评设计师点评设计师点评,设计师点评设计师点评设计师点评"
+        cn: 'xl',
       },
-      satisfactionData: {
-        percent: '99%',
-        correct: '50%',
-        small: '30%',
-        bigger: '20%',
-      },
-      clothingBagArr:[
-        1,2
-      ]
-    }
+    ],
+    dianPing: {
+      title: '设计师点评',
+      content: '设计师点评设计师点评设计师点评设计师点评设计师点评设计师点评,设计师点评设计师点评设计师点评',
+    },
+    satisfactionData: {
+      percent: '99%',
+      correct: '50%',
+      small: '30%',
+      bigger: '20%',
+    },
+    clothingBagArr: [1, 2],
+    changeBagShow: false,
+  };
 
-    computed = {
-  
-    }
+  computed = {};
 
-    methods = {
-     
-    }
-  }
+  methods = {
+    changeBagFun() {
+      console.log(999);
+      this.changeBagShow = !this.changeBagShow;
+    },
+  };
+}
 </script>

@@ -1,0 +1,56 @@
+<style lang="less">
+@import '../../common.less';
+.lose-efficacy-box {
+  .position-center;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  .lose-efficacy {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    line-height: 1.2;
+    .flex-center(column);
+    transform: rotate(-45deg);
+    width: 70rpx;
+    height: 70rpx;
+    font-size: 18rpx;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    color: #888;
+  }
+}
+</style>
+<template lang="wxml">
+  <view class="lose-efficacy-box">
+    <view 
+      style="top:{{top}};left:{{left}};right:{{right}};bottom:{{bottom}}"
+      class="lose-efficacy">
+      <view>
+        {{text}}
+      </view>
+      <view>
+        失效
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class LoseEfficacy extends wepy.component {
+  props = {
+    text: String,
+    left: String,
+    right: String,
+    top: String,
+    bottom: String,
+  };
+  components = {};
+  data = {};
+  methods = {};
+  events = {};
+  onLoad() {
+    console.log(this.aaa, '!11');
+  }
+}
+</script>

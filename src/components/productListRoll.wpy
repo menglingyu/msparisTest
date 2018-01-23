@@ -29,8 +29,8 @@
 
 <script>
 import wepy from 'wepy';
-import ClothingLevel from '@/components/clothingLevel'
-import ProductCard from '@/components/productCard'
+import ClothingLevel from '../components/common/clothingLevel';
+import ProductCard from '../components/productCard';
 
 // 练习生成器
 // function readonly(target, name, descriptor) {
@@ -39,27 +39,25 @@ import ProductCard from '@/components/productCard'
 //   return descriptor;
 // }
 export default class ProductListRoll extends wepy.component {
-    props = {
-      title: String,
-      list:{
-        type: Array
-      }
-    }
-    components = {
-      ProductCard,
-      ClothingLevel
-    }
-    onLoad(){
-      // console.log(this.list,"@@@111")
-    }
-    // @readonly
-    b(){
+  props = {
+    title: String,
+    list: {
+      type: Array,
+    },
+  };
+  components = {
+    ProductCard,
+    ClothingLevel,
+  };
+  onLoad() {
+    // console.log(this.list,"@@@111")
+  }
+  // @readonly
+  b() {}
+  data = {};
+  methods = {};
 
-    }
-    data = {}
-    methods = {}
-
-    events = {}
+  events = {};
 }
 
 // const e = new ProductListRoll();
@@ -67,7 +65,7 @@ export default class ProductListRoll extends wepy.component {
 </script>
 
 <style lang="less">
-.size-box{
+.size-box {
   font-size: 20rpx;
 }
 </style>
